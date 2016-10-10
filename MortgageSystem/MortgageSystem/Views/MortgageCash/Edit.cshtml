@@ -1,7 +1,7 @@
 ﻿@model MortgageSystem.Models.trans_transaction_header
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 <h2>Create</h2>
@@ -17,15 +17,15 @@
 
         <div class="form-group">
             @Html.Label("From Date:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.Editor("from_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", required = "required" } })
+            <div class="col-md-10">                
+                @Html.Editor("from_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", required = "required", @Value = ViewBag.enc_date_started } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.Label("To Date:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("to_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", @readonly = "readonly", required = "required" } })
+                @Html.Editor("to_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", @readonly = "readonly", required = "required", @Value = ViewBag.enc_date_ended } })
             </div>
         </div>
 
@@ -53,10 +53,16 @@
             </div>
         </div>
 
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.mf_is_void_status_id, "Void Status", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("mf_is_void_status_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.mf_is_void_status_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.mf_open_status_id, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.mf_open_status_id, "Mortgage Status", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("mf_open_status_id", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.mf_open_status_id, "", new { @class = "text-danger" })
@@ -80,35 +86,35 @@
         <div class="form-group">
             @Html.Label("Amount", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("amount", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", required = "required" } })
+                @Html.Editor("amount", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", required = "required", @Value = ViewBag.enc_amt_borrowed } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.Label("Daily Payable", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("daily_payable", new { htmlAttributes = new { @class = "form-control required", @readonly = "readonly" } })
+                @Html.Editor("daily_payable", new { htmlAttributes = new { @class = "form-control required", @readonly = "readonly", @Value = ViewBag.enc_daily_amt_paypable } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.Label("Total Payable", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("total_amount", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.Editor("total_amount", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.enc_total_amount } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.Label("Daily Interest", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("daily_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.Editor("daily_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.enc_daily_interest } })
             </div>
         </div>
-
+        
         <div class="form-group">
             @Html.Label("Total Interest", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("total_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.Editor("total_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.enc_total_interest } })
             </div>
         </div>
 
@@ -116,7 +122,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
