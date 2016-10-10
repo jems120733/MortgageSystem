@@ -265,6 +265,7 @@
     <EntitySetMapping Name="mf_status">
       <EntityTypeMapping TypeName="mortgageModel.mf_status">
         <MappingFragment StoreEntitySet="mf_status">
+          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>

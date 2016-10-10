@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="mortgageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mortgageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="crm_address">
           <Key>
             <PropertyRef Name="id" />
@@ -282,6 +282,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="mf_tax">
           <Key>
@@ -1795,6 +1796,7 @@
           <NavigationProperty Name="inv_item" Relationship="mortgageModel.FK_inv_item_mf_status_id" FromRole="mf_status" ToRole="inv_item" />
           <NavigationProperty Name="inv_pricebook_header" Relationship="mortgageModel.FK_inv_pricebook_header_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_header" />
           <NavigationProperty Name="inv_pricebook_detail" Relationship="mortgageModel.FK_inv_pricebook_detail_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_detail" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="mf_tax">
           <Key>
@@ -3319,6 +3321,7 @@
           <EntitySetMapping Name="mf_status">
             <EntityTypeMapping TypeName="mortgageModel.mf_status">
               <MappingFragment StoreEntitySet="mf_status">
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>

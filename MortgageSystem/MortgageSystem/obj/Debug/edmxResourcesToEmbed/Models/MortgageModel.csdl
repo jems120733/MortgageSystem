@@ -332,6 +332,7 @@
     <NavigationProperty Name="inv_item" Relationship="mortgageModel.FK_inv_item_mf_status_id" FromRole="mf_status" ToRole="inv_item" />
     <NavigationProperty Name="inv_pricebook_header" Relationship="mortgageModel.FK_inv_pricebook_header_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_header" />
     <NavigationProperty Name="inv_pricebook_detail" Relationship="mortgageModel.FK_inv_pricebook_detail_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_detail" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="mf_tax">
     <Key>

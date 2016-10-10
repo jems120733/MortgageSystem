@@ -31,6 +31,7 @@ namespace MortgageSystem.Models
     
         public int id { get; set; }
         public string description { get; set; }
+        public string Note { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_requirements_tf> crm_requirements_tf { get; set; }

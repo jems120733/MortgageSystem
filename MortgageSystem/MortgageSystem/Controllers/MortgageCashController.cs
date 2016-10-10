@@ -201,10 +201,20 @@ namespace MortgageSystem.Views
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
+            delete_mortgage_daily_payable(id);
             trans_transaction_header trans_transaction_header = await db.trans_transaction_header.FindAsync(id);
             db.trans_transaction_header.Remove(trans_transaction_header);
             await db.SaveChangesAsync();
+            
             return RedirectToAction("Index");
+        }
+
+        public void delete_mortgage_daily_payable(long header_id)
+        {
+            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == header_id);
+            db.crm_mortgage_daily_payables.Remove(mdp);
+            db.SaveChanges();
+            
         }
 
         protected override void Dispose(bool disposing)
