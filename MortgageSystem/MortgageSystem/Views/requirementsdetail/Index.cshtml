@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MortgageSystem.Models.crm_requirements_tf>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.transaction_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crm_branch.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crm_customer.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crm_user.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mf_status.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.transaction_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_branch.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_customer.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_user.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mf_status.description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

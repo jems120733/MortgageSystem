@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MortgageSystem.Models.crm_job_position_tf>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date_hired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_end)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crm_employee.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crm_job_position_mf.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_hired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_end)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_employee.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_job_position_mf.description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

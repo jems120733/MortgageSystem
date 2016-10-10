@@ -1,0 +1,87 @@
+﻿@model IEnumerable<MortgageSystem.Models.trans_transaction_header>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            From Date
+        </th>
+        <th>
+           To Date
+        </th>
+        
+        <th>
+            Comment
+        </th>
+        <th>
+            Branch
+        </th>
+        
+        <th>
+            Customer/Mortgagor
+        </th>
+        <th>
+            Encoded by
+        </th>
+        
+        <th>
+            Void Status
+        </th>
+        <th>
+            Grant Status
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.sales_date.ToString("MM/dd/yyyy")
+        </td>
+        <td>            
+            @item.date_created.ToString("MM/dd/yyyy")
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_branch.description)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_customer.last_name),
+            @Html.DisplayFor(modelItem => item.crm_customer.first_name)
+            @Html.DisplayFor(modelItem => item.crm_customer.middle_name)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crm_user.username)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.mf_status.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mf_status1.description)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

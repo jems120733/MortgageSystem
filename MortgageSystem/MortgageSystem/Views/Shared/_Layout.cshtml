@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mortgage System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">               
+                <ul class="nav navbar-nav" style="font-weight:bold;">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Masterfile<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Payment Type", "Index", "paymenttype")</li>
+                            <!--
+                            <li>@Html.ActionLink("Status", "Index", "status")</li>
+                            -->
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRM<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Address", "Index", "address")</li>
+                            <li>@Html.ActionLink("Branch", "Index", "branch")</li>
+                            <li>@Html.ActionLink("Civil Status", "Index", "civilstatus")</li>
+                            <!--
+                            <li>@Html.ActionLink("Contact", "Index", "contact")</li>
+                            -->
+                            <li>@Html.ActionLink("Requirement MF", "Index", "requirementsmf")</li>
+                            <li>@Html.ActionLink("Requirement Detail", "Index", "requirementsdetail")</li>
+                            <li>@Html.ActionLink("Seminar Scheduler", "Index", "schedulermf")</li>
+                            <li>@Html.ActionLink("Seminar Schedule", "Index", "scheduletf")</li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer<b class="caret"></b></a>
+                        <ul class="dropdown-menu">                            
+                            <li>@Html.ActionLink("Customer", "Index", "customer")</li>
+                            <li>@Html.ActionLink("Address", "Index", "customer_address")</li>
+                            <li>@Html.ActionLink("Contact", "Index", "customer_contact")</li>
+                            <li>@Html.ActionLink("Dependent", "Index", "dependent")</li>                            
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employee<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Employee", "Index", "employee")</li>
+                            <li>@Html.ActionLink("Address", "Index", "employee_address")</li>
+                            <li>@Html.ActionLink("Contact", "Index", "employee_contact")</li>
+                            <li>@Html.ActionLink("Position MF", "Index", "job_position_mf")</li>
+                            <li>@Html.ActionLink("Position Detail", "Index", "job_position_detail")</li>
+                            <li>@Html.ActionLink("Assignment", "Index", "assignment")</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Item Category", "Index", "item_category")</li>
+                            <li>@Html.ActionLink("Item", "Index", "item")</li>
+                            <li>@Html.ActionLink("UOM - Unit of Measure", "Index", "uom")</li>
+                            <li>@Html.ActionLink("Pricebook Header", "Index", "pricebook_header")</li>
+                            <li>@Html.ActionLink("Pricebook Detail - Price", "Index", "pricebook_detail")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transaction<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Mortgage Cash", "Index", "MortgageCash")</li>
+                            <li>@Html.ActionLink("Mortgage Inventory", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Purchase Invoice", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Purchase Return", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Sales Invoice", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Sales Return", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Stock Adjustment", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Stock Transfer", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Beginning Balance", "Index", "PTDatas")</li>
+                        </ul>
+                    </li>
+
+                    
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+
+        //Global Variable
+        function getdate() {
+            var period = parseFloat($("#period").val());
+            var tt = document.getElementById('from_date').value;
+
+            var date = new Date(tt);
+            var newdate = new Date(date);
+
+            newdate.setDate(newdate.getDate() + period);
+
+            var dd = newdate.getDate();
+            var mm = newdate.getMonth() + 1;
+            var y = newdate.getFullYear();
+
+            var someFormattedDate = mm + '/' + dd + '/' + y;
+            document.getElementById('to_date').value = someFormattedDate;
+        }
+
+        function calculate() {
+            var rate = parseFloat($("#rate").val());
+            var period = parseFloat($("#period").val());
+            var mortgage_amount = parseFloat($("#amount").val());
+            var total_interest = mortgage_amount * (rate / 100);
+            var total_amount = mortgage_amount + total_interest;
+            var daily_interest = total_interest / period;
+            //Final Result
+            $("#total_amount").val(total_amount.toFixed(2));
+            $("#daily_interest").val(daily_interest.toFixed(2));
+            $("#daily_payable").val((total_amount / period).toFixed(2));
+            $("#total_interest").val(total_interest.toFixed(2));
+        }
+
+
+        $('#amount').on('keyup', function () {
+            calculate();
+        });
+
+        $('#from_date').on('keyup', function () {
+            getdate();
+        });
+
+        $(document).ready(function () {
+            $('#from_date').datepicker();
+            $('#to_date').datepicker();
+        });
+
+    </script>
+</body>
+</html>

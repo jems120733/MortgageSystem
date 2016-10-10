@@ -1,0 +1,34 @@
+﻿@model MortgageSystem.Models.crm_employee_address
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>crm_employee_address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.crm_address.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crm_address.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crm_employee.first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crm_employee.first_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
