@@ -65,13 +65,7 @@ namespace MortgageSystem.Views
         {
             var list = from data in db.trans_payment_collection
                        where data.trans_transaction_header_id == id
-                       select new
-                       {
-                           Description = data.mf_payment_type.Description,
-                           last_name = data.crm_employee.last_name,
-                           comment = data.comment,
-                           amount = data.amount
-                        };
+                       select data;
             ViewBag.list = list.ToList();
             return View();
         }

@@ -33,11 +33,18 @@
     {
         <tr>
             <td>
-                @item.Description
+                @item.mf_payment_type.Description
             </td>
 
             <td>
-                @item.last_name
+                @if (item.crm_collector_id != null)
+                {
+                    @item.crm_employee.last_name 
+
+                   
+                }
+                
+                
             </td>
 
             <td>
