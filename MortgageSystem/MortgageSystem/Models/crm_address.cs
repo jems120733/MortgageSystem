@@ -17,19 +17,19 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public crm_address()
         {
+            this.crm_dependent = new HashSet<crm_dependent>();
             this.crm_customer_address = new HashSet<crm_customer_address>();
             this.crm_employee_address = new HashSet<crm_employee_address>();
-            this.crm_dependent = new HashSet<crm_dependent>();
         }
     
         public int id { get; set; }
         public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<crm_dependent> crm_dependent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_customer_address> crm_customer_address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_employee_address> crm_employee_address { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<crm_dependent> crm_dependent { get; set; }
     }
 }

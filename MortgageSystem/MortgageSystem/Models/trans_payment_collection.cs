@@ -20,8 +20,8 @@ namespace MortgageSystem.Models
         public int crm_user_id { get; set; }
         public Nullable<int> crm_admin_id { get; set; }
         public Nullable<long> crm_collector_id { get; set; }
-        public int crm_branch_id { get; set; }
-        public int mf_status_id { get; set; }
+        public Nullable<int> crm_branch_id { get; set; }
+        public Nullable<int> mf_status_id { get; set; }
         public decimal amount { get; set; }
         public decimal open_balance_amount { get; set; }
         public System.DateTime payment_date { get; set; }

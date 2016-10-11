@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="mortgageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="mortgageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="crm_address">
     <Key>
       <PropertyRef Name="id" />
@@ -297,8 +297,8 @@
     <Property Name="crm_user_id" Type="int" Nullable="false" />
     <Property Name="crm_admin_id" Type="int" />
     <Property Name="crm_collector_id" Type="bigint" />
-    <Property Name="crm_branch_id" Type="int" Nullable="false" />
-    <Property Name="mf_status_id" Type="int" Nullable="false" />
+    <Property Name="crm_branch_id" Type="int" />
+    <Property Name="mf_status_id" Type="int" />
     <Property Name="amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="open_balance_amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="payment_date" Type="datetime" Nullable="false" />
@@ -854,7 +854,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_payment_collection_crm_branch_id">
-    <End Role="crm_branch" Type="Self.crm_branch" Multiplicity="1" />
+    <End Role="crm_branch" Type="Self.crm_branch" Multiplicity="0..1" />
     <End Role="trans_payment_collection" Type="Self.trans_payment_collection" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="crm_branch">
@@ -902,7 +902,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_payment_collection_mf_status_id">
-    <End Role="mf_status" Type="Self.mf_status" Multiplicity="1" />
+    <End Role="mf_status" Type="Self.mf_status" Multiplicity="0..1" />
     <End Role="trans_payment_collection" Type="Self.trans_payment_collection" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="mf_status">

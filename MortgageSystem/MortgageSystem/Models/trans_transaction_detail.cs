@@ -40,10 +40,10 @@ namespace MortgageSystem.Models
         public virtual crm_user crm_user { get; set; }
         public virtual crm_user crm_user1 { get; set; }
         public virtual inv_discount inv_discount { get; set; }
+        public virtual inv_item inv_item { get; set; }
         public virtual inv_uom inv_uom { get; set; }
         public virtual mf_status mf_status { get; set; }
         public virtual mf_tax mf_tax { get; set; }
         public virtual trans_transaction_header trans_transaction_header { get; set; }
-        public virtual inv_item inv_item { get; set; }
     }
 }

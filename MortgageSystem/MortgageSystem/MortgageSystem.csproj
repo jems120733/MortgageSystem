@@ -655,6 +655,7 @@
     <Content Include="Views\MortgageCash\Details.cshtml" />
     <Content Include="Views\MortgageCash\Edit.cshtml" />
     <Content Include="Views\MortgageCash\Index.cshtml" />
+    <Content Include="Views\MortgageCash\Payment_form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -24,9 +24,9 @@ namespace MortgageSystem.Models
         public string upc { get; set; }
         public string sku { get; set; }
     
-        public virtual inv_pricebook_header inv_pricebook_header { get; set; }
-        public virtual inv_uom inv_uom { get; set; }
         public virtual inv_item inv_item { get; set; }
         public virtual mf_status mf_status { get; set; }
+        public virtual inv_pricebook_header inv_pricebook_header { get; set; }
+        public virtual inv_uom inv_uom { get; set; }
     }
 }

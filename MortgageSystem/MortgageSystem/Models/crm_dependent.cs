@@ -19,7 +19,7 @@ namespace MortgageSystem.Models
         public Nullable<int> crm_address_id { get; set; }
         public string name { get; set; }
     
-        public virtual crm_customer crm_customer { get; set; }
         public virtual crm_address crm_address { get; set; }
+        public virtual crm_customer crm_customer { get; set; }
     }
 }

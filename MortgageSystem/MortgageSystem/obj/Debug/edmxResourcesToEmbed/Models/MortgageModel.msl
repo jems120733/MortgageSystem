@@ -4,374 +4,7 @@
     <EntitySetMapping Name="crm_address">
       <EntityTypeMapping TypeName="mortgageModel.crm_address">
         <MappingFragment StoreEntitySet="crm_address">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_branch">
-      <EntityTypeMapping TypeName="mortgageModel.crm_branch">
-        <MappingFragment StoreEntitySet="crm_branch">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_civil_status">
-      <EntityTypeMapping TypeName="mortgageModel.crm_civil_status">
-        <MappingFragment StoreEntitySet="crm_civil_status">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_contact">
-      <EntityTypeMapping TypeName="mortgageModel.crm_contact">
-        <MappingFragment StoreEntitySet="crm_contact">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_customer">
-      <EntityTypeMapping TypeName="mortgageModel.crm_customer">
-        <MappingFragment StoreEntitySet="crm_customer">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="first_name" ColumnName="first_name" />
-          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
-          <ScalarProperty Name="last_name" ColumnName="last_name" />
-          <ScalarProperty Name="birthday" ColumnName="birthday" />
-          <ScalarProperty Name="birth_place" ColumnName="birth_place" />
-          <ScalarProperty Name="crm_civil_status_id" ColumnName="crm_civil_status_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_customer_address">
-      <EntityTypeMapping TypeName="mortgageModel.crm_customer_address">
-        <MappingFragment StoreEntitySet="crm_customer_address">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
-          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_dependent">
-      <EntityTypeMapping TypeName="mortgageModel.crm_dependent">
-        <MappingFragment StoreEntitySet="crm_dependent">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_employee">
-      <EntityTypeMapping TypeName="mortgageModel.crm_employee">
-        <MappingFragment StoreEntitySet="crm_employee">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="first_name" ColumnName="first_name" />
-          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
-          <ScalarProperty Name="last_name" ColumnName="last_name" />
-          <ScalarProperty Name="birthday" ColumnName="birthday" />
-          <ScalarProperty Name="birth_place" ColumnName="birth_place" />
-          <ScalarProperty Name="crm_civil_status_id" ColumnName="crm_civil_status_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_employee_address">
-      <EntityTypeMapping TypeName="mortgageModel.crm_employee_address">
-        <MappingFragment StoreEntitySet="crm_employee_address">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
-          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_job_position_mf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_job_position_mf">
-        <MappingFragment StoreEntitySet="crm_job_position_mf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_job_position_tf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_job_position_tf">
-        <MappingFragment StoreEntitySet="crm_job_position_tf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
-          <ScalarProperty Name="crm_job_position_mf_id" ColumnName="crm_job_position_mf_id" />
-          <ScalarProperty Name="date_hired" ColumnName="date_hired" />
-          <ScalarProperty Name="date_end" ColumnName="date_end" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_mortgage_daily_payables">
-      <EntityTypeMapping TypeName="mortgageModel.crm_mortgage_daily_payables">
-        <MappingFragment StoreEntitySet="crm_mortgage_daily_payables">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-          <ScalarProperty Name="user_id" ColumnName="user_id" />
-          <ScalarProperty Name="period" ColumnName="period" />
-          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
-          <ScalarProperty Name="amount_borrowed" ColumnName="amount_borrowed" />
-          <ScalarProperty Name="total_interest" ColumnName="total_interest" />
-          <ScalarProperty Name="daily_amount_payables" ColumnName="daily_amount_payables" />
-          <ScalarProperty Name="date_started" ColumnName="date_started" />
-          <ScalarProperty Name="date_ended" ColumnName="date_ended" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_requirements_mf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_requirements_mf">
-        <MappingFragment StoreEntitySet="crm_requirements_mf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_requirements_tf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_requirements_tf">
-        <MappingFragment StoreEntitySet="crm_requirements_tf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
-          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
-          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
-          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
-          <ScalarProperty Name="remarks" ColumnName="remarks" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_seminar_scheduler_mf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_seminar_scheduler_mf">
-        <MappingFragment StoreEntitySet="crm_seminar_scheduler_mf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="scheduled_date" ColumnName="scheduled_date" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
-          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_seminar_scheduler_tf">
-      <EntityTypeMapping TypeName="mortgageModel.crm_seminar_scheduler_tf">
-        <MappingFragment StoreEntitySet="crm_seminar_scheduler_tf">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_seminar_scheduler_mf_id" ColumnName="crm_seminar_scheduler_mf_id" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_user">
-      <EntityTypeMapping TypeName="mortgageModel.crm_user">
-        <MappingFragment StoreEntitySet="crm_user">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_discount">
-      <EntityTypeMapping TypeName="mortgageModel.inv_discount">
-        <MappingFragment StoreEntitySet="inv_discount">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="rate" ColumnName="rate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_item_category">
-      <EntityTypeMapping TypeName="mortgageModel.inv_item_category">
-        <MappingFragment StoreEntitySet="inv_item_category">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="item_category_id" ColumnName="item_category_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_pricebook_detail">
-      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_detail">
-        <MappingFragment StoreEntitySet="inv_pricebook_detail">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="pricebook_header_id" ColumnName="pricebook_header_id" />
-          <ScalarProperty Name="item_id" ColumnName="item_id" />
-          <ScalarProperty Name="uom_id" ColumnName="uom_id" />
-          <ScalarProperty Name="status_id" ColumnName="status_id" />
-          <ScalarProperty Name="price_vat_ex" ColumnName="price_vat_ex" />
-          <ScalarProperty Name="price_vat_in" ColumnName="price_vat_in" />
-          <ScalarProperty Name="upc" ColumnName="upc" />
-          <ScalarProperty Name="sku" ColumnName="sku" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_pricebook_header">
-      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_header">
-        <MappingFragment StoreEntitySet="inv_pricebook_header">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="branch_id" ColumnName="branch_id" />
-          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-          <ScalarProperty Name="pricebook_type_id" ColumnName="pricebook_type_id" />
-          <ScalarProperty Name="status_id" ColumnName="status_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_pricebook_type">
-      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_type">
-        <MappingFragment StoreEntitySet="inv_pricebook_type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="inv_uom">
-      <EntityTypeMapping TypeName="mortgageModel.inv_uom">
-        <MappingFragment StoreEntitySet="inv_uom">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="mf_document_type">
-      <EntityTypeMapping TypeName="mortgageModel.mf_document_type">
-        <MappingFragment StoreEntitySet="mf_document_type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="mf_payment_terms">
-      <EntityTypeMapping TypeName="mortgageModel.mf_payment_terms">
-        <MappingFragment StoreEntitySet="mf_payment_terms">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="period" ColumnName="period" />
-          <ScalarProperty Name="rate" ColumnName="rate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="mf_payment_type">
-      <EntityTypeMapping TypeName="mortgageModel.mf_payment_type">
-        <MappingFragment StoreEntitySet="mf_payment_type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="mf_status">
-      <EntityTypeMapping TypeName="mortgageModel.mf_status">
-        <MappingFragment StoreEntitySet="mf_status">
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="mf_tax">
-      <EntityTypeMapping TypeName="mortgageModel.mf_tax">
-        <MappingFragment StoreEntitySet="mf_tax">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="rate" ColumnName="rate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="trans_payment_collection">
-      <EntityTypeMapping TypeName="mortgageModel.trans_payment_collection">
-        <MappingFragment StoreEntitySet="trans_payment_collection">
-          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
-          <ScalarProperty Name="mf_payment_type_id" ColumnName="mf_payment_type_id" />
-          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
-          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
-          <ScalarProperty Name="crm_collector_id" ColumnName="crm_collector_id" />
-          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
-          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="open_balance_amount" ColumnName="open_balance_amount" />
-          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
-          <ScalarProperty Name="sales_date" ColumnName="sales_date" />
-          <ScalarProperty Name="comment" ColumnName="comment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="trans_transaction_detail">
-      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_detail">
-        <MappingFragment StoreEntitySet="trans_transaction_detail">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
-          <ScalarProperty Name="inv_item_id" ColumnName="inv_item_id" />
-          <ScalarProperty Name="inv_uom_id" ColumnName="inv_uom_id" />
-          <ScalarProperty Name="mf_tax_id" ColumnName="mf_tax_id" />
-          <ScalarProperty Name="inv_discount_id" ColumnName="inv_discount_id" />
-          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
-          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
-          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
-          <ScalarProperty Name="qty" ColumnName="qty" />
-          <ScalarProperty Name="inv_qty" ColumnName="inv_qty" />
-          <ScalarProperty Name="tax_amount" ColumnName="tax_amount" />
-          <ScalarProperty Name="price_wo_tax" ColumnName="price_wo_tax" />
-          <ScalarProperty Name="price_w_tax" ColumnName="price_w_tax" />
-          <ScalarProperty Name="discount_rate" ColumnName="discount_rate" />
-          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
-          <ScalarProperty Name="line_discount_amount_applied" ColumnName="line_discount_amount_applied" />
-          <ScalarProperty Name="sub_total" ColumnName="sub_total" />
-          <ScalarProperty Name="extended_total" ColumnName="extended_total" />
-          <ScalarProperty Name="upc" ColumnName="upc" />
-          <ScalarProperty Name="sku" ColumnName="sku" />
-          <ScalarProperty Name="comment" ColumnName="comment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="trans_transaction_header">
-      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_header">
-        <MappingFragment StoreEntitySet="trans_transaction_header">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="trans_transaction_type_id" ColumnName="trans_transaction_type_id" />
-          <ScalarProperty Name="sales_date" ColumnName="sales_date" />
-          <ScalarProperty Name="date_created" ColumnName="date_created" />
-          <ScalarProperty Name="mf_document_type_id" ColumnName="mf_document_type_id" />
-          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
-          <ScalarProperty Name="crm_from_branch_id" ColumnName="crm_from_branch_id" />
-          <ScalarProperty Name="crm_to_branch_id" ColumnName="crm_to_branch_id" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
-          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
-          <ScalarProperty Name="inv_discount_id" ColumnName="inv_discount_id" />
-          <ScalarProperty Name="mf_is_void_status_id" ColumnName="mf_is_void_status_id" />
-          <ScalarProperty Name="mf_open_status_id" ColumnName="mf_open_status_id" />
-          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
-          <ScalarProperty Name="comment" ColumnName="comment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="trans_transaction_type">
-      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_type">
-        <MappingFragment StoreEntitySet="trans_transaction_type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_customer_contact">
-      <EntityTypeMapping TypeName="mortgageModel.crm_customer_contact">
-        <MappingFragment StoreEntitySet="crm_customer_contact">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="crm_employee_contact">
-      <EntityTypeMapping TypeName="mortgageModel.crm_employee_contact">
-        <MappingFragment StoreEntitySet="crm_employee_contact">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -387,6 +20,199 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="crm_branch">
+      <EntityTypeMapping TypeName="mortgageModel.crm_branch">
+        <MappingFragment StoreEntitySet="crm_branch">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_civil_status">
+      <EntityTypeMapping TypeName="mortgageModel.crm_civil_status">
+        <MappingFragment StoreEntitySet="crm_civil_status">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_contact">
+      <EntityTypeMapping TypeName="mortgageModel.crm_contact">
+        <MappingFragment StoreEntitySet="crm_contact">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_customer">
+      <EntityTypeMapping TypeName="mortgageModel.crm_customer">
+        <MappingFragment StoreEntitySet="crm_customer">
+          <ScalarProperty Name="crm_civil_status_id" ColumnName="crm_civil_status_id" />
+          <ScalarProperty Name="birth_place" ColumnName="birth_place" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_customer_address">
+      <EntityTypeMapping TypeName="mortgageModel.crm_customer_address">
+        <MappingFragment StoreEntitySet="crm_customer_address">
+          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_customer_contact">
+      <EntityTypeMapping TypeName="mortgageModel.crm_customer_contact">
+        <MappingFragment StoreEntitySet="crm_customer_contact">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_dependent">
+      <EntityTypeMapping TypeName="mortgageModel.crm_dependent">
+        <MappingFragment StoreEntitySet="crm_dependent">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_employee">
+      <EntityTypeMapping TypeName="mortgageModel.crm_employee">
+        <MappingFragment StoreEntitySet="crm_employee">
+          <ScalarProperty Name="crm_civil_status_id" ColumnName="crm_civil_status_id" />
+          <ScalarProperty Name="birth_place" ColumnName="birth_place" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_employee_address">
+      <EntityTypeMapping TypeName="mortgageModel.crm_employee_address">
+        <MappingFragment StoreEntitySet="crm_employee_address">
+          <ScalarProperty Name="crm_address_id" ColumnName="crm_address_id" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_employee_contact">
+      <EntityTypeMapping TypeName="mortgageModel.crm_employee_contact">
+        <MappingFragment StoreEntitySet="crm_employee_contact">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_job_position_mf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_job_position_mf">
+        <MappingFragment StoreEntitySet="crm_job_position_mf">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_job_position_tf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_job_position_tf">
+        <MappingFragment StoreEntitySet="crm_job_position_tf">
+          <ScalarProperty Name="date_end" ColumnName="date_end" />
+          <ScalarProperty Name="date_hired" ColumnName="date_hired" />
+          <ScalarProperty Name="crm_job_position_mf_id" ColumnName="crm_job_position_mf_id" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_mortgage_daily_payables">
+      <EntityTypeMapping TypeName="mortgageModel.crm_mortgage_daily_payables">
+        <MappingFragment StoreEntitySet="crm_mortgage_daily_payables">
+          <ScalarProperty Name="date_ended" ColumnName="date_ended" />
+          <ScalarProperty Name="date_started" ColumnName="date_started" />
+          <ScalarProperty Name="daily_amount_payables" ColumnName="daily_amount_payables" />
+          <ScalarProperty Name="total_interest" ColumnName="total_interest" />
+          <ScalarProperty Name="amount_borrowed" ColumnName="amount_borrowed" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_requirements_mf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_requirements_mf">
+        <MappingFragment StoreEntitySet="crm_requirements_mf">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_requirements_tf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_requirements_tf">
+        <MappingFragment StoreEntitySet="crm_requirements_tf">
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
+          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
+          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_seminar_scheduler_mf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_seminar_scheduler_mf">
+        <MappingFragment StoreEntitySet="crm_seminar_scheduler_mf">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="scheduled_date" ColumnName="scheduled_date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_seminar_scheduler_tf">
+      <EntityTypeMapping TypeName="mortgageModel.crm_seminar_scheduler_tf">
+        <MappingFragment StoreEntitySet="crm_seminar_scheduler_tf">
+          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="crm_seminar_scheduler_mf_id" ColumnName="crm_seminar_scheduler_mf_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crm_user">
+      <EntityTypeMapping TypeName="mortgageModel.crm_user">
+        <MappingFragment StoreEntitySet="crm_user">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="crm_employee_id" ColumnName="crm_employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_discount">
+      <EntityTypeMapping TypeName="mortgageModel.inv_discount">
+        <MappingFragment StoreEntitySet="inv_discount">
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="inv_item">
       <EntityTypeMapping TypeName="mortgageModel.inv_item">
         <MappingFragment StoreEntitySet="inv_item">
@@ -394,6 +220,180 @@
           <ScalarProperty Name="status_id" ColumnName="status_id" />
           <ScalarProperty Name="full_description" ColumnName="full_description" />
           <ScalarProperty Name="short_description" ColumnName="short_description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_item_category">
+      <EntityTypeMapping TypeName="mortgageModel.inv_item_category">
+        <MappingFragment StoreEntitySet="inv_item_category">
+          <ScalarProperty Name="item_category_id" ColumnName="item_category_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_pricebook_detail">
+      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_detail">
+        <MappingFragment StoreEntitySet="inv_pricebook_detail">
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="upc" ColumnName="upc" />
+          <ScalarProperty Name="price_vat_in" ColumnName="price_vat_in" />
+          <ScalarProperty Name="price_vat_ex" ColumnName="price_vat_ex" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="uom_id" ColumnName="uom_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="pricebook_header_id" ColumnName="pricebook_header_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_pricebook_header">
+      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_header">
+        <MappingFragment StoreEntitySet="inv_pricebook_header">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="pricebook_type_id" ColumnName="pricebook_type_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_pricebook_type">
+      <EntityTypeMapping TypeName="mortgageModel.inv_pricebook_type">
+        <MappingFragment StoreEntitySet="inv_pricebook_type">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_uom">
+      <EntityTypeMapping TypeName="mortgageModel.inv_uom">
+        <MappingFragment StoreEntitySet="inv_uom">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mf_document_type">
+      <EntityTypeMapping TypeName="mortgageModel.mf_document_type">
+        <MappingFragment StoreEntitySet="mf_document_type">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mf_payment_terms">
+      <EntityTypeMapping TypeName="mortgageModel.mf_payment_terms">
+        <MappingFragment StoreEntitySet="mf_payment_terms">
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mf_payment_type">
+      <EntityTypeMapping TypeName="mortgageModel.mf_payment_type">
+        <MappingFragment StoreEntitySet="mf_payment_type">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mf_status">
+      <EntityTypeMapping TypeName="mortgageModel.mf_status">
+        <MappingFragment StoreEntitySet="mf_status">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mf_tax">
+      <EntityTypeMapping TypeName="mortgageModel.mf_tax">
+        <MappingFragment StoreEntitySet="mf_tax">
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trans_payment_collection">
+      <EntityTypeMapping TypeName="mortgageModel.trans_payment_collection">
+        <MappingFragment StoreEntitySet="trans_payment_collection">
+          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="sales_date" ColumnName="sales_date" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="open_balance_amount" ColumnName="open_balance_amount" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
+          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
+          <ScalarProperty Name="crm_collector_id" ColumnName="crm_collector_id" />
+          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
+          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
+          <ScalarProperty Name="mf_payment_type_id" ColumnName="mf_payment_type_id" />
+          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trans_transaction_detail">
+      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_detail">
+        <MappingFragment StoreEntitySet="trans_transaction_detail">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="upc" ColumnName="upc" />
+          <ScalarProperty Name="extended_total" ColumnName="extended_total" />
+          <ScalarProperty Name="sub_total" ColumnName="sub_total" />
+          <ScalarProperty Name="line_discount_amount_applied" ColumnName="line_discount_amount_applied" />
+          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
+          <ScalarProperty Name="discount_rate" ColumnName="discount_rate" />
+          <ScalarProperty Name="price_w_tax" ColumnName="price_w_tax" />
+          <ScalarProperty Name="price_wo_tax" ColumnName="price_wo_tax" />
+          <ScalarProperty Name="tax_amount" ColumnName="tax_amount" />
+          <ScalarProperty Name="inv_qty" ColumnName="inv_qty" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="mf_status_id" ColumnName="mf_status_id" />
+          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
+          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
+          <ScalarProperty Name="inv_discount_id" ColumnName="inv_discount_id" />
+          <ScalarProperty Name="mf_tax_id" ColumnName="mf_tax_id" />
+          <ScalarProperty Name="inv_uom_id" ColumnName="inv_uom_id" />
+          <ScalarProperty Name="inv_item_id" ColumnName="inv_item_id" />
+          <ScalarProperty Name="trans_transaction_header_id" ColumnName="trans_transaction_header_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trans_transaction_header">
+      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_header">
+        <MappingFragment StoreEntitySet="trans_transaction_header">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
+          <ScalarProperty Name="mf_open_status_id" ColumnName="mf_open_status_id" />
+          <ScalarProperty Name="mf_is_void_status_id" ColumnName="mf_is_void_status_id" />
+          <ScalarProperty Name="inv_discount_id" ColumnName="inv_discount_id" />
+          <ScalarProperty Name="crm_admin_id" ColumnName="crm_admin_id" />
+          <ScalarProperty Name="crm_user_id" ColumnName="crm_user_id" />
+          <ScalarProperty Name="crm_customer_id" ColumnName="crm_customer_id" />
+          <ScalarProperty Name="crm_to_branch_id" ColumnName="crm_to_branch_id" />
+          <ScalarProperty Name="crm_from_branch_id" ColumnName="crm_from_branch_id" />
+          <ScalarProperty Name="crm_branch_id" ColumnName="crm_branch_id" />
+          <ScalarProperty Name="mf_document_type_id" ColumnName="mf_document_type_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="sales_date" ColumnName="sales_date" />
+          <ScalarProperty Name="trans_transaction_type_id" ColumnName="trans_transaction_type_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trans_transaction_type">
+      <EntityTypeMapping TypeName="mortgageModel.trans_transaction_type">
+        <MappingFragment StoreEntitySet="trans_transaction_type">
+          <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

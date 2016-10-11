@@ -17,13 +17,13 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public crm_customer()
         {
+            this.crm_customer_contact = new HashSet<crm_customer_contact>();
             this.crm_mortgage_daily_payables = new HashSet<crm_mortgage_daily_payables>();
             this.crm_requirements_tf = new HashSet<crm_requirements_tf>();
             this.crm_seminar_scheduler_tf = new HashSet<crm_seminar_scheduler_tf>();
             this.crm_dependent = new HashSet<crm_dependent>();
-            this.trans_transaction_header = new HashSet<trans_transaction_header>();
-            this.crm_customer_contact = new HashSet<crm_customer_contact>();
             this.inv_pricebook_header = new HashSet<inv_pricebook_header>();
+            this.trans_transaction_header = new HashSet<trans_transaction_header>();
         }
     
         public long id { get; set; }
@@ -36,6 +36,8 @@ namespace MortgageSystem.Models
     
         public virtual crm_civil_status crm_civil_status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<crm_customer_contact> crm_customer_contact { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_mortgage_daily_payables> crm_mortgage_daily_payables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_requirements_tf> crm_requirements_tf { get; set; }
@@ -44,10 +46,8 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_dependent> crm_dependent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trans_transaction_header> trans_transaction_header { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<crm_customer_contact> crm_customer_contact { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inv_pricebook_header> inv_pricebook_header { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<trans_transaction_header> trans_transaction_header { get; set; }
     }
 }

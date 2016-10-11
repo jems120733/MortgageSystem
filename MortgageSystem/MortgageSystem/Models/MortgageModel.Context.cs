@@ -26,14 +26,17 @@ namespace MortgageSystem.Models
         }
     
         public virtual DbSet<crm_address> crm_address { get; set; }
+        public virtual DbSet<crm_assignment> crm_assignment { get; set; }
         public virtual DbSet<crm_branch> crm_branch { get; set; }
         public virtual DbSet<crm_civil_status> crm_civil_status { get; set; }
         public virtual DbSet<crm_contact> crm_contact { get; set; }
         public virtual DbSet<crm_customer> crm_customer { get; set; }
         public virtual DbSet<crm_customer_address> crm_customer_address { get; set; }
+        public virtual DbSet<crm_customer_contact> crm_customer_contact { get; set; }
         public virtual DbSet<crm_dependent> crm_dependent { get; set; }
         public virtual DbSet<crm_employee> crm_employee { get; set; }
         public virtual DbSet<crm_employee_address> crm_employee_address { get; set; }
+        public virtual DbSet<crm_employee_contact> crm_employee_contact { get; set; }
         public virtual DbSet<crm_job_position_mf> crm_job_position_mf { get; set; }
         public virtual DbSet<crm_job_position_tf> crm_job_position_tf { get; set; }
         public virtual DbSet<crm_mortgage_daily_payables> crm_mortgage_daily_payables { get; set; }
@@ -43,6 +46,7 @@ namespace MortgageSystem.Models
         public virtual DbSet<crm_seminar_scheduler_tf> crm_seminar_scheduler_tf { get; set; }
         public virtual DbSet<crm_user> crm_user { get; set; }
         public virtual DbSet<inv_discount> inv_discount { get; set; }
+        public virtual DbSet<inv_item> inv_item { get; set; }
         public virtual DbSet<inv_item_category> inv_item_category { get; set; }
         public virtual DbSet<inv_pricebook_detail> inv_pricebook_detail { get; set; }
         public virtual DbSet<inv_pricebook_header> inv_pricebook_header { get; set; }
@@ -57,9 +61,5 @@ namespace MortgageSystem.Models
         public virtual DbSet<trans_transaction_detail> trans_transaction_detail { get; set; }
         public virtual DbSet<trans_transaction_header> trans_transaction_header { get; set; }
         public virtual DbSet<trans_transaction_type> trans_transaction_type { get; set; }
-        public virtual DbSet<crm_customer_contact> crm_customer_contact { get; set; }
-        public virtual DbSet<crm_employee_contact> crm_employee_contact { get; set; }
-        public virtual DbSet<crm_assignment> crm_assignment { get; set; }
-        public virtual DbSet<inv_item> inv_item { get; set; }
     }
 }

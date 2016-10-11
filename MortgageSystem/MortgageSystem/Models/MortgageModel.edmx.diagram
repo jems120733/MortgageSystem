@@ -4,110 +4,110 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7a2b7c499d3949e8963d54894c7361e9" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="mortgageModel.crm_address" Width="1.5" PointX="10.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_branch" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_civil_status" Width="1.5" PointX="1.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_contact" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_customer" Width="1.5" PointX="3.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_customer_address" Width="2" PointX="13" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_dependent" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_employee" Width="1.5" PointX="1.5" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_employee_address" Width="2.375" PointX="13" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_job_position_mf" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_job_position_tf" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_mortgage_daily_payables" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_requirements_mf" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_requirements_tf" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_seminar_scheduler_mf" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_seminar_scheduler_tf" Width="2.25" PointX="3" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.crm_user" Width="1.5" PointX="3.75" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_discount" Width="1.5" PointX="3.75" PointY="31.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_item_category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_detail" Width="1.5" PointX="9" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_header" Width="1.5" PointX="6.75" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_type" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.inv_uom" Width="1.5" PointX="6.75" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.mf_document_type" Width="1.5" PointX="3.75" PointY="34.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.mf_payment_terms" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.mf_payment_type" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.mf_status" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.mf_tax" Width="1.5" PointX="6.75" PointY="26.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.trans_payment_collection" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.trans_transaction_detail" Width="1.5" PointX="9" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.trans_transaction_header" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mortgageModel.trans_transaction_type" Width="1.5" PointX="3.75" PointY="36.625" IsExpanded="true" />
-        <AssociationConnector Association="mortgageModel.FK_customer_address_address_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_employee_address_address_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_branch_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_branch_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_from" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_to" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_custmer_civil_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_employee_civil_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_crm_customer_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_customer_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_crm_customer_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_dependent_customer_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_customer_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_customer_address_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_job_position_tf_crm_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_mf_crm_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_user_crm_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_employee_address_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_employee_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_job_position_tf_crm_job_position_mf_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_mf_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_mf_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_crm_seminar_scheduler_mf_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_mf_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_admin_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_crm_admin_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_user_id_admin" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_inv_discount_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_inv_discount_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_item_category_item_category_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_pricebook_detail_pricebook_header_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_pricebook_detail_uom_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_inv_uom_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_document_type_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_mf_payment_type_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_mf_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_mf_status_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_status_id_open" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_mf_tax_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_trans_transaction_header_id" ManuallyRouted="false" />
-        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_trans_transaction_type_id" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="mortgageModel.crm_customer_contact" Width="1.5" PointX="6" PointY="32.25" />
-        <AssociationConnector Association="mortgageModel.FK_crm_customer_contact_crm_customer_id" />
-        <EntityTypeShape EntityType="mortgageModel.crm_employee_contact" Width="1.5" PointX="3.75" PointY="39.75" />
-        <AssociationConnector Association="mortgageModel.FK_employee_contact_employee_id" />
+      <Diagram DiagramId="7a2b7c499d3949e8963d54894c7361e9" Name="Diagram1" ZoomLevel="16">
+        <EntityTypeShape EntityType="mortgageModel.crm_address" Width="1.5" PointX="8.75" PointY="4" />
+        <EntityTypeShape EntityType="mortgageModel.crm_assignment" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="mortgageModel.crm_branch" Width="1.5" PointX="0.75" PointY="16.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_civil_status" Width="1.5" PointX="1.5" PointY="12.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_contact" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="mortgageModel.crm_customer" Width="1.5" PointX="3.75" PointY="11.5" />
+        <EntityTypeShape EntityType="mortgageModel.crm_customer_address" Width="1.5" PointX="11" PointY="3.375" />
+        <EntityTypeShape EntityType="mortgageModel.crm_customer_contact" Width="1.5" PointX="6" PointY="3.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_dependent" Width="1.5" PointX="11" PointY="9.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_employee" Width="1.5" PointX="1.5" PointY="6.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_employee_address" Width="1.5" PointX="11" PointY="6.375" />
+        <EntityTypeShape EntityType="mortgageModel.crm_employee_contact" Width="1.5" PointX="3.75" PointY="8.875" />
+        <EntityTypeShape EntityType="mortgageModel.crm_job_position_mf" Width="1.5" PointX="1.5" PointY="34.375" />
+        <EntityTypeShape EntityType="mortgageModel.crm_job_position_tf" Width="1.5" PointX="0.75" PointY="30.875" />
+        <EntityTypeShape EntityType="mortgageModel.crm_mortgage_daily_payables" Width="1.5" PointX="5.25" PointY="29.25" />
+        <EntityTypeShape EntityType="mortgageModel.crm_requirements_mf" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="mortgageModel.crm_requirements_tf" Width="1.5" PointX="6" PointY="20.625" />
+        <EntityTypeShape EntityType="mortgageModel.crm_seminar_scheduler_mf" Width="1.5" PointX="3.75" PointY="5.25" />
+        <EntityTypeShape EntityType="mortgageModel.crm_seminar_scheduler_tf" Width="1.5" PointX="6" PointY="17" />
+        <EntityTypeShape EntityType="mortgageModel.crm_user" Width="1.5" PointX="1.5" PointY="2.25" />
+        <EntityTypeShape EntityType="mortgageModel.inv_discount" Width="1.5" PointX="6" PointY="13.25" />
+        <EntityTypeShape EntityType="mortgageModel.inv_item" Width="1.5" PointX="3" PointY="16.75" />
+        <EntityTypeShape EntityType="mortgageModel.inv_item_category" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_detail" Width="1.5" PointX="11.25" PointY="20.5" />
+        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_header" Width="1.5" PointX="6" PointY="24.625" />
+        <EntityTypeShape EntityType="mortgageModel.inv_pricebook_type" Width="1.5" PointX="3.75" PointY="34.375" />
+        <EntityTypeShape EntityType="mortgageModel.inv_uom" Width="1.5" PointX="6" PointY="10" />
+        <EntityTypeShape EntityType="mortgageModel.mf_document_type" Width="1.5" PointX="0.75" PointY="26.125" />
+        <EntityTypeShape EntityType="mortgageModel.mf_payment_terms" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="mortgageModel.mf_payment_type" Width="1.5" PointX="6" PointY="34.125" />
+        <EntityTypeShape EntityType="mortgageModel.mf_status" Width="1.5" PointX="0.75" PointY="20.375" />
+        <EntityTypeShape EntityType="mortgageModel.mf_tax" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="mortgageModel.trans_payment_collection" Width="1.5" PointX="8.25" PointY="23.5" />
+        <EntityTypeShape EntityType="mortgageModel.trans_transaction_detail" Width="1.5" PointX="8.25" PointY="15.75" />
+        <EntityTypeShape EntityType="mortgageModel.trans_transaction_header" Width="1.5" PointX="3" PointY="24.75" />
+        <EntityTypeShape EntityType="mortgageModel.trans_transaction_type" Width="1.5" PointX="0.75" PointY="28.5" />
         <AssociationConnector Association="mortgageModel.FK_crm_dependent_crm_address_id" />
-        <EntityTypeShape EntityType="mortgageModel.crm_assignment" Width="2" PointX="11" PointY="10" />
+        <AssociationConnector Association="mortgageModel.FK_customer_address_address_id" />
+        <AssociationConnector Association="mortgageModel.FK_employee_address_address_id" />
         <AssociationConnector Association="mortgageModel.FK_crm_assignment_crm_branch_id" />
         <AssociationConnector Association="mortgageModel.FK_crm_assignment_crm_employee_id" />
         <AssociationConnector Association="mortgageModel.FK_crm_assignment_crm_job_position_tf_id" />
         <AssociationConnector Association="mortgageModel.FK_crm_assignment_mf_status_id" />
-        <EntityTypeShape EntityType="mortgageModel.inv_item" Width="1.5" PointX="13" PointY="6.125" />
+        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_branch_id" />
         <AssociationConnector Association="mortgageModel.FK_inv_item_crm_branch_id" />
+        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_crm_branch_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_branch_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_from" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_to" />
+        <AssociationConnector Association="mortgageModel.FK_custmer_civil_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_employee_civil_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_customer_contact_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_dependent_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_customer_address_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_job_position_tf_crm_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_mf_crm_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_user_crm_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_employee_address_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_employee_contact_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_employee_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_job_position_tf_crm_job_position_mf_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_requirements_tf_mf_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_mf_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_crm_seminar_scheduler_mf_id" />
+        <AssociationConnector Association="mortgageModel.FK_crm_seminar_scheduler_tf_mf_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_admin_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_crm_admin_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_user_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_crm_user_id_admin" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_inv_discount_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_inv_discount_id" />
         <AssociationConnector Association="mortgageModel.FK_inv_item_mf_status_id" />
         <AssociationConnector Association="mortgageModel.FK_pricebook_detail_item_id" />
         <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_inv_item_id" />
-        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_crm_branch_id" />
-        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_crm_customer_id" />
+        <AssociationConnector Association="mortgageModel.FK_item_category_item_category_id" />
+        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_detail_mf_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_pricebook_detail_pricebook_header_id" />
+        <AssociationConnector Association="mortgageModel.FK_pricebook_detail_uom_id" />
         <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_inv_pricebook_type_id" />
         <AssociationConnector Association="mortgageModel.FK_inv_pricebook_header_mf_status_id" />
-        <AssociationConnector Association="mortgageModel.FK_inv_pricebook_detail_mf_status_id" />
-        </Diagram>
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_inv_uom_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_document_type_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_mf_payment_type_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_mf_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_mf_status_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_mf_status_id_open" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_mf_tax_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_detail_trans_transaction_header_id" />
+        <AssociationConnector Association="mortgageModel.FK_trans_transaction_header_trans_transaction_type_id" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

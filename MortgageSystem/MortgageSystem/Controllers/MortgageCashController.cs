@@ -23,6 +23,18 @@ namespace MortgageSystem.Views
             return View(await trans_transaction_header.ToListAsync());
         }
 
+        // GET: MortgageCash
+        public long local_header_id;
+        public ActionResult Payment_form(long id)
+        {
+
+            //var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
+            //return View(await trans_transaction_header.ToListAsync());
+            local_header_id = id;
+
+            return View();
+        }
+
         // GET: MortgageCash/Details/5
         public async Task<ActionResult> Details(long? id)
         {

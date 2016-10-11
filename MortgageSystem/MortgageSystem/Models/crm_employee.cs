@@ -17,14 +17,14 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public crm_employee()
         {
+            this.crm_assignment = new HashSet<crm_assignment>();
             this.crm_customer_address = new HashSet<crm_customer_address>();
             this.crm_job_position_tf = new HashSet<crm_job_position_tf>();
             this.crm_seminar_scheduler_mf = new HashSet<crm_seminar_scheduler_mf>();
             this.crm_user = new HashSet<crm_user>();
             this.crm_employee_address = new HashSet<crm_employee_address>();
-            this.trans_payment_collection = new HashSet<trans_payment_collection>();
             this.crm_employee_contact = new HashSet<crm_employee_contact>();
-            this.crm_assignment = new HashSet<crm_assignment>();
+            this.trans_payment_collection = new HashSet<trans_payment_collection>();
         }
     
         public long id { get; set; }
@@ -35,6 +35,8 @@ namespace MortgageSystem.Models
         public string birth_place { get; set; }
         public int crm_civil_status_id { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<crm_assignment> crm_assignment { get; set; }
         public virtual crm_civil_status crm_civil_status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_customer_address> crm_customer_address { get; set; }
@@ -47,10 +49,8 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_employee_address> crm_employee_address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_employee_contact> crm_employee_contact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<crm_assignment> crm_assignment { get; set; }
+        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
     }
 }

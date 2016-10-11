@@ -27,10 +27,10 @@ namespace MortgageSystem.Models
         public int pricebook_type_id { get; set; }
         public Nullable<int> status_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<inv_pricebook_detail> inv_pricebook_detail { get; set; }
         public virtual crm_branch crm_branch { get; set; }
         public virtual crm_customer crm_customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<inv_pricebook_detail> inv_pricebook_detail { get; set; }
         public virtual inv_pricebook_type inv_pricebook_type { get; set; }
         public virtual mf_status mf_status { get; set; }
     }

@@ -26,9 +26,9 @@ namespace MortgageSystem.Models
         public Nullable<System.DateTime> date_hired { get; set; }
         public Nullable<System.DateTime> date_end { get; set; }
     
-        public virtual crm_employee crm_employee { get; set; }
-        public virtual crm_job_position_mf crm_job_position_mf { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_assignment> crm_assignment { get; set; }
+        public virtual crm_employee crm_employee { get; set; }
+        public virtual crm_job_position_mf crm_job_position_mf { get; set; }
     }
 }
