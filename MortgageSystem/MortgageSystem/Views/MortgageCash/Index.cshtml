@@ -59,9 +59,12 @@
         </td>
         
         <td>
-            @Html.DisplayFor(modelItem => item.crm_customer.last_name),
-            @Html.DisplayFor(modelItem => item.crm_customer.first_name)
-            @Html.DisplayFor(modelItem => item.crm_customer.middle_name)
+            
+            @Html.ActionLink(item.crm_customer.last_name +", " 
+                            + item.crm_customer.first_name + " "
+                            + item.crm_customer.middle_name,
+                            "Details", 
+                            new { id=item.id })
             
         </td>
         <td>

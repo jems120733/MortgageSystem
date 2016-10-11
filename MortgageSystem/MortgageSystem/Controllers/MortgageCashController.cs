@@ -18,6 +18,7 @@ namespace MortgageSystem.Views
         // GET: MortgageCash
         public async Task<ActionResult> Index()
         {
+            Session["user_id"] = 1;
             var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
             return View(await trans_transaction_header.ToListAsync());
         }
@@ -34,6 +35,19 @@ namespace MortgageSystem.Views
             {
                 return HttpNotFound();
             }
+
+            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+            ViewBag.enc_period = mdp.period;
+            ViewBag.enc_amt_borrowed = mdp.amount_borrowed.ToString("#,##.00");
+            ViewBag.enc_total_interest = mdp.total_interest.ToString("#,##.00");
+            ViewBag.rate = ((decimal.Parse(mdp.total_interest.ToString()) / decimal.Parse(mdp.amount_borrowed.ToString())) * 100).ToString("#,##.00");
+            ViewBag.enc_daily_amt_paypable = mdp.daily_amount_payables.ToString("#,##.00");
+            ViewBag.enc_date_started = mdp.date_started.ToString("MMMM dd, yyyy");
+            ViewBag.enc_date_ended = mdp.date_ended.ToString("MMMM dd, yyyy");
+            ViewBag.enc_total_amount = (decimal.Parse(mdp.amount_borrowed.ToString()) + decimal.Parse(mdp.total_interest.ToString())).ToString("#,##.00");
+            ViewBag.enc_daily_interest = (decimal.Parse(mdp.total_interest.ToString()) / decimal.Parse(mdp.period.ToString())).ToString("#,##.00"); 
+            ViewBag.crm_branch_id = trans_transaction_header.crm_branch.description;
+
             return View(trans_transaction_header);
         }
 
@@ -63,7 +77,7 @@ namespace MortgageSystem.Views
             th.mf_document_type_id = 1; //Mortgage Cash
             th.crm_branch_id = int.Parse(crm_branch_id);
             th.crm_customer_id = Int64.Parse(crm_customer_id);
-            th.crm_user_id = 1; //temporary
+            th.crm_user_id = int.Parse(Session["user_id"].ToString()); //temporary
             th.mf_is_void_status_id = 5; //Not Voided
             th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
             th.comment = comment;
@@ -72,13 +86,59 @@ namespace MortgageSystem.Views
             db.trans_transaction_header.Add(th);
 
             //mortgage_daily_payables
-            mortgage_daily_payables(th.id, Int64.Parse(crm_customer_id), 1, int.Parse(period), DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),
-                                decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date));
+            mortgage_daily_payables(th.id, Int64.Parse(crm_customer_id), int.Parse(Session["user_id"].ToString()), int.Parse(period), 
+                DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date));
+
+            //payment_collection
+            int payment_type_id = 1;//cash
+            payment_collection(th.id, payment_type_id, int.Parse(Session["user_id"].ToString()), int.Parse(crm_branch_id), 5, decimal.Parse(amount),
+                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0);
+
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index");
         }
 
+
+        public void update_payment_collection(Int64 trans_header_id, int payment_type_id, int user_id, int branch_id, int is_void_status_id,
+            decimal amount, decimal open_balance_amount, DateTime payment_date, DateTime sales_date, string comment, decimal discount)
+        {            
+            trans_payment_collection pc = db.trans_payment_collection.First(x => x.trans_transaction_header_id == trans_header_id);
+            pc.trans_transaction_header_id = trans_header_id;
+            pc.mf_payment_type_id = payment_type_id;
+            pc.crm_user_id = user_id;
+            pc.crm_branch_id = branch_id;
+            pc.mf_status_id = is_void_status_id;
+            pc.amount = amount;
+            pc.open_balance_amount = amount * (-1);
+            pc.payment_date = payment_date;
+            pc.sales_date = sales_date;
+            pc.comment = comment;
+            pc.discount_amount = discount;
+
+            db.SaveChanges();
+
+        }
+        public void payment_collection(Int64 trans_header_id,int payment_type_id, int user_id, int branch_id,int is_void_status_id,
+            decimal amount,decimal open_balance_amount, DateTime payment_date, DateTime sales_date,string comment, decimal discount)
+        {
+            trans_payment_collection pc = new trans_payment_collection();
+            pc.trans_transaction_header_id = trans_header_id;
+            pc.mf_payment_type_id = payment_type_id;
+            pc.crm_user_id = user_id;            
+            pc.crm_branch_id = branch_id;
+            pc.mf_status_id = is_void_status_id;
+            pc.amount = amount;
+            pc.open_balance_amount = amount * (-1);
+            pc.payment_date = payment_date;
+            pc.sales_date = sales_date;
+            pc.comment = comment;
+            pc.discount_amount = discount;
+
+            db.trans_payment_collection.Add(pc);
+            db.SaveChanges();
+
+        }
 
 
         public void mortgage_daily_payables(Int64 trans_header_id, Int64 customer_id, int user_id, int period, DateTime trans_date, 
@@ -168,14 +228,24 @@ namespace MortgageSystem.Views
                 th.date_created = DateTime.Now;
                 th.crm_branch_id = int.Parse(crm_branch_id);
                 th.crm_customer_id = Int64.Parse(crm_customer_id);
-                th.crm_user_id = 1; //temporary
+                th.crm_user_id = int.Parse(Session["user_id"].ToString()); //temporary
                 th.mf_is_void_status_id = int.Parse(mf_is_void_status_id);
                 th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
                 th.comment = comment;
             };            
-            await db.SaveChangesAsync();            
-            update_mortgage_daily_payables(header_id, Int64.Parse(crm_customer_id), 1, int.Parse(period), DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),
+            await db.SaveChangesAsync();
+
+            //Update Mortage payables
+            update_mortgage_daily_payables(header_id, Int64.Parse(crm_customer_id), int.Parse(Session["user_id"].ToString()), int.Parse(period), DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),
                                 decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date));
+
+            //update payment_collection
+            int payment_type_id = 1;//cash
+            update_payment_collection(th.id, payment_type_id, int.Parse(Session["user_id"].ToString()), int.Parse(crm_branch_id), 5, decimal.Parse(amount),
+                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0);
+
+
+
             return RedirectToAction("Index");
         }
 
@@ -202,6 +272,7 @@ namespace MortgageSystem.Views
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
             delete_mortgage_daily_payable(id);
+            delete_payment_collection(id);
             trans_transaction_header trans_transaction_header = await db.trans_transaction_header.FindAsync(id);
             db.trans_transaction_header.Remove(trans_transaction_header);
             await db.SaveChangesAsync();
@@ -217,6 +288,13 @@ namespace MortgageSystem.Views
             
         }
 
+        public void delete_payment_collection(long header_id)
+        {
+            trans_payment_collection pc = db.trans_payment_collection.First(x => x.trans_transaction_header_id == header_id);
+            db.trans_payment_collection.Remove(pc);
+            db.SaveChanges();
+
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -7,35 +7,28 @@
 <h2>Details</h2>
 
 <div>
-    <h4>trans_transaction_header</h4>
+    <h4>Mortgage Cash - Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.sales_date)
+            From Date:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.sales_date)
+            @ViewBag.enc_date_started 
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.date_created)
+            To Date:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.date_created)
+            @ViewBag.enc_date_ended
+            
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.discount_amount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.discount_amount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.comment)
+            Comment:
         </dt>
 
         <dd>
@@ -43,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.crm_branch.description)
+           Branch:
         </dt>
 
         <dd>
@@ -51,63 +44,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.crm_branch1.description)
+            Mortgagor:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.crm_branch1.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.crm_branch2.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.crm_branch2.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.crm_customer.first_name)
-        </dt>
-
-        <dd>
+            @Html.DisplayFor(model => model.crm_customer.last_name),
             @Html.DisplayFor(model => model.crm_customer.first_name)
+            @Html.DisplayFor(model => model.crm_customer.middle_name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.crm_user.username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.crm_user.username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.crm_user1.username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.crm_user1.username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.inv_discount.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.inv_discount.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.mf_document_type.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.mf_document_type.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.mf_status.description)
+            Void Status:
         </dt>
 
         <dd>
@@ -115,7 +62,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.mf_status1.description)
+            Mortgage Status:
         </dt>
 
         <dd>
@@ -123,11 +70,60 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.trans_transaction_type.description)
+            Period:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.trans_transaction_type.description)
+            @ViewBag.enc_period
+        </dd>
+
+        <dt>
+            Rate:
+        </dt>
+
+        <dd>
+            @ViewBag.rate
+        </dd>
+
+        <dt>
+            Amount:
+        </dt>
+
+        <dd>
+            @ViewBag.enc_amt_borrowed 
+        </dd>
+
+        <dt>
+            Daily Payable:
+        </dt>
+
+        <dd>
+            @ViewBag.enc_daily_amt_paypable 
+        </dd>
+
+        <dt>
+            Total Payable:
+        </dt>
+
+        <dd>
+            @ViewBag.enc_total_amount 
+        </dd>
+
+        <dt>
+            Daily Interested:
+        </dt>
+
+        <dd>
+            @ViewBag.enc_daily_interest 
+        </dd>
+
+        <dt>
+            Total Interest:
+        </dt>
+
+
+        <dd>
+            @ViewBag.enc_total_interest
         </dd>
 
     </dl>
