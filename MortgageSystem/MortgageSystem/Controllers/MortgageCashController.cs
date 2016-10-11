@@ -23,17 +23,54 @@ namespace MortgageSystem.Views
             return View(await trans_transaction_header.ToListAsync());
         }
 
-        // GET: MortgageCash
-        public long local_header_id;
-        public ActionResult Payment_form(long id)
+        // GET: Payment_form        
+        public ActionResult Payment_form(Int64 id)
         {
+            trans_transaction_header th = db.trans_transaction_header.Find(id);
+            ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;            
+            ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
+            ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id","last_name");
+            ViewBag.header_id = id;
 
-            //var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
-            //return View(await trans_transaction_header.ToListAsync());
-            local_header_id = id;
-
+            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+            ViewBag.amount = mdp.daily_amount_payables;
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Payment_form(string id, string sales_date, string mf_payment_type_id, string crm_collector_id, string amount, string comment)
+        {
+            trans_payment_collection pc = new trans_payment_collection();
+                pc.trans_transaction_header_id = Int64.Parse(id);
+                pc.mf_payment_type_id = int.Parse(mf_payment_type_id);
+                pc.crm_user_id = int.Parse(Session["user_id"].ToString());
+                pc.crm_collector_id = int.Parse(crm_collector_id);
+                pc.amount = decimal.Parse(amount);
+                pc.open_balance_amount = decimal.Parse(amount);
+                pc.payment_date = DateTime.Now;
+                pc.sales_date = DateTime.Parse(sales_date);
+                pc.comment = comment;
+            db.trans_payment_collection.Add(pc);
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+            //return View();
+        }
+        //here
+        //public async Task<ActionResult> Payment_form_save()
+        //{
+        //    trans_transaction_header th = db.trans_transaction_header.Find(id);
+        //    ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;
+        //    ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
+        //    ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id", "last_name");
+
+        //    crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+        //    ViewBag.amount = mdp.daily_amount_payables;
+
+        //    await db.SaveChangesAsync();
+        //    return View();
+        //}
 
         // GET: MortgageCash/Details/5
         public async Task<ActionResult> Details(long? id)
