@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Payment_list";
+}
+
+<h2>Payment_list</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Payment Type
+        </th>
+        <th>
+            Collector
+        </th>
+        
+
+        <th>
+            Comment
+        </th>
+
+        <th>
+           Amount
+        </th>
+        
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.list)
+    {
+        <tr>
+            <td>
+                @item.Description
+            </td>
+
+            <td>
+                @item.last_name
+            </td>
+
+            <td>
+                @item.comment
+            </td>
+
+            <td>
+                @item.amount
+            </td>
+           
+
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>*@
+        </tr>
+    }
+
+</table>
+
+
+

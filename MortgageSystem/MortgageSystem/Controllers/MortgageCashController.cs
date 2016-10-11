@@ -51,26 +51,31 @@ namespace MortgageSystem.Views
                 pc.payment_date = DateTime.Now;
                 pc.sales_date = DateTime.Parse(sales_date);
                 pc.comment = comment;
+                pc.mf_status_id = 5;
             db.trans_payment_collection.Add(pc);
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index");
             //return View();
         }
-        //here
-        //public async Task<ActionResult> Payment_form_save()
-        //{
-        //    trans_transaction_header th = db.trans_transaction_header.Find(id);
-        //    ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;
-        //    ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
-        //    ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id", "last_name");
 
-        //    crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
-        //    ViewBag.amount = mdp.daily_amount_payables;
+        
+        //Payment list  
+        public ActionResult Payment_list(long id)
+        {
+            var list = from data in db.trans_payment_collection
+                       where data.trans_transaction_header_id == id
+                       select new
+                       {
+                           Description = data.mf_payment_type.Description,
+                           last_name = data.crm_employee.last_name,
+                           comment = data.comment,
+                           amount = data.amount
+                        };
+            ViewBag.list = list.ToList();
+            return View();
+        }
 
-        //    await db.SaveChangesAsync();
-        //    return View();
-        //}
 
         // GET: MortgageCash/Details/5
         public async Task<ActionResult> Details(long? id)
