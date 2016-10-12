@@ -133,6 +133,7 @@
     <Property Name="amount_borrowed" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="total_interest" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="daily_amount_payables" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="daily_amount_interest" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="date_started" Type="date" Nullable="false" />
     <Property Name="date_ended" Type="date" Nullable="false" />
   </EntityType>
@@ -297,8 +298,8 @@
     <Property Name="crm_user_id" Type="int" Nullable="false" />
     <Property Name="crm_admin_id" Type="int" />
     <Property Name="crm_collector_id" Type="bigint" />
-    <Property Name="crm_branch_id" Type="int" />
     <Property Name="mf_status_id" Type="int" />
+    <Property Name="crm_branch_id" Type="int" />
     <Property Name="amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="open_balance_amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="payment_date" Type="datetime" Nullable="false" />

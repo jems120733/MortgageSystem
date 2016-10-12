@@ -486,6 +486,7 @@
     <NavigationProperty Name="crm_customer" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_customer_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_customer" />
     <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_user" />
     <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="crm_mortgage_daily_payables" ToRole="trans_transaction_header" />
+    <Property Name="daily_amount_interest" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
   </EntityType>
   <EntityType Name="crm_requirements_mf">
     <Key>

@@ -138,6 +138,7 @@
           <Property Name="amount_borrowed" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="total_interest" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="daily_amount_payables" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="daily_amount_interest" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="date_started" Type="date" Nullable="false" />
           <Property Name="date_ended" Type="date" Nullable="false" />
         </EntityType>
@@ -302,8 +303,8 @@
           <Property Name="crm_user_id" Type="int" Nullable="false" />
           <Property Name="crm_admin_id" Type="int" />
           <Property Name="crm_collector_id" Type="bigint" />
-          <Property Name="crm_branch_id" Type="int" />
           <Property Name="mf_status_id" Type="int" />
+          <Property Name="crm_branch_id" Type="int" />
           <Property Name="amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="open_balance_amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="payment_date" Type="datetime" Nullable="false" />
@@ -1950,6 +1951,7 @@
           <NavigationProperty Name="crm_customer" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_customer_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_customer" />
           <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_user" />
           <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="crm_mortgage_daily_payables" ToRole="trans_transaction_header" />
+          <Property Name="daily_amount_interest" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
         </EntityType>
         <EntityType Name="crm_requirements_mf">
           <Key>
@@ -3194,6 +3196,7 @@
           <EntitySetMapping Name="crm_mortgage_daily_payables">
             <EntityTypeMapping TypeName="mortgageModel.crm_mortgage_daily_payables">
               <MappingFragment StoreEntitySet="crm_mortgage_daily_payables">
+                <ScalarProperty Name="daily_amount_interest" ColumnName="daily_amount_interest" />
                 <ScalarProperty Name="date_ended" ColumnName="date_ended" />
                 <ScalarProperty Name="date_started" ColumnName="date_started" />
                 <ScalarProperty Name="daily_amount_payables" ColumnName="daily_amount_payables" />

@@ -19,13 +19,24 @@ namespace MortgageSystem.Views
         public async Task<ActionResult> Index()
         {
             Session["user_id"] = 1;
-            var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
-            return View(await trans_transaction_header.ToListAsync());
+            //var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
+            var crm_mortgage_daily_payables = db.crm_mortgage_daily_payables.Include(t => t.trans_transaction_header).Include(t => t.crm_customer);
+            return View(await crm_mortgage_daily_payables.ToListAsync());
         }
 
         // GET: Payment_form        
         public ActionResult Payment_form(Int64 id)
         {
+            try
+            {
+                trans_payment_collection pc = db.trans_payment_collection.OrderBy(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);
+                ViewBag.last_payment_date = pc.sales_date.ToShortDateString();
+            }
+            catch
+            {
+                ViewBag.last_payment_date = "No payment has been made";
+            }
+
             trans_transaction_header th = db.trans_transaction_header.Find(id);
             ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;            
             ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
@@ -39,9 +50,17 @@ namespace MortgageSystem.Views
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Payment_form(string id, string sales_date, string mf_payment_type_id, string crm_collector_id, string amount, string comment)
+        public async Task<ActionResult> Payment_form(string id, string sales_date, string mf_payment_type_id, string crm_collector_id, string amount, string comment, string last_payment_date)
         {
-            trans_payment_collection pc = new trans_payment_collection();
+            DateTime last_payment = DateTime.Parse(last_payment_date);
+            DateTime current_sales_date = DateTime.Parse(sales_date);
+
+            Double date_diff = (current_sales_date - last_payment).TotalDays;
+            date_diff = int.Parse(date_diff.ToString());
+
+            if (date_diff == 1)
+            {
+                trans_payment_collection pc = new trans_payment_collection();
                 pc.trans_transaction_header_id = Int64.Parse(id);
                 pc.mf_payment_type_id = int.Parse(mf_payment_type_id);
                 pc.crm_user_id = int.Parse(Session["user_id"].ToString());
@@ -52,14 +71,54 @@ namespace MortgageSystem.Views
                 pc.sales_date = DateTime.Parse(sales_date);
                 pc.comment = comment;
                 pc.mf_status_id = 5;
-            db.trans_payment_collection.Add(pc);
-            await db.SaveChangesAsync();
-
+                db.trans_payment_collection.Add(pc);
+                //await db.SaveChangesAsync();
+            }
+            else
+            {
+                for (int x = 1; x <= date_diff; x++)
+                {
+                    if (last_payment.AddDays(x) != current_sales_date)
+                    {
+                        trans_payment_collection pc = new trans_payment_collection();
+                        pc.trans_transaction_header_id = Int64.Parse(id);
+                        pc.mf_payment_type_id = int.Parse(mf_payment_type_id);
+                        pc.crm_user_id = int.Parse(Session["user_id"].ToString());
+                        pc.crm_collector_id = int.Parse(crm_collector_id);
+                        pc.amount = 0;
+                        pc.open_balance_amount = 0;
+                        pc.payment_date = DateTime.Now;
+                        pc.sales_date = last_payment.AddDays(x);
+                        pc.comment = comment;
+                        pc.mf_status_id = 5;
+                        db.trans_payment_collection.Add(pc);
+                        //await db.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        trans_payment_collection pc = new trans_payment_collection();
+                        pc.trans_transaction_header_id = Int64.Parse(id);
+                        pc.mf_payment_type_id = int.Parse(mf_payment_type_id);
+                        pc.crm_user_id = int.Parse(Session["user_id"].ToString());
+                        pc.crm_collector_id = int.Parse(crm_collector_id);
+                        pc.amount = decimal.Parse(amount);
+                        pc.open_balance_amount = decimal.Parse(amount);
+                        pc.payment_date = DateTime.Now;
+                        pc.sales_date = DateTime.Parse(sales_date);
+                        pc.comment = comment;
+                        pc.mf_status_id = 5;
+                        db.trans_payment_collection.Add(pc);
+                        //await db.SaveChangesAsync();
+                    }
+                }
+                await db.SaveChangesAsync();
+            }
             return RedirectToAction("Index");
+            
             //return View();
         }
 
-
+        
         //Payment list  
         public ActionResult Payment_list(long id)
         {
@@ -69,14 +128,6 @@ namespace MortgageSystem.Views
             ViewBag.list = list.ToList();
             return View();
         }
-        //public ActionResult Payment_list(long id)
-        //{
-        //    var list = from data in db.trans_payment_collection
-        //               where data.trans_transaction_header_id == id
-        //               select data;
-        //    ViewBag.list = list.ToList();
-        //    return View();
-        //}
 
 
         // GET: MortgageCash/Details/5
@@ -126,6 +177,7 @@ namespace MortgageSystem.Views
                                                 string total_interest, string comment)
         {
 
+
             trans_transaction_header th = new trans_transaction_header();
             th.trans_transaction_type_id = 1; //regular
             th.sales_date = DateTime.Parse(from_date);
@@ -137,21 +189,22 @@ namespace MortgageSystem.Views
             th.mf_is_void_status_id = 5; //Not Voided
             th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
             th.comment = comment;
+            
 
             //Save Header
             db.trans_transaction_header.Add(th);
 
-            //mortgage_daily_payables
+            //Save mortgage_daily_payables
             mortgage_daily_payables(th.id, Int64.Parse(crm_customer_id), int.Parse(Session["user_id"].ToString()), int.Parse(period), 
-                DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date));
+                DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),decimal.Parse(daily_payable), DateTime.Parse(from_date), 
+                DateTime.Parse(to_date), decimal.Parse(daily_interest));
 
-            //payment_collection
+            //Save payment_collection
             int payment_type_id = 1;//cash
             payment_collection(th.id, payment_type_id, int.Parse(Session["user_id"].ToString()), int.Parse(crm_branch_id), 5, decimal.Parse(amount),
                 decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0);
 
             await db.SaveChangesAsync();
-
             return RedirectToAction("Index");
         }
 
@@ -197,8 +250,8 @@ namespace MortgageSystem.Views
         }
 
 
-        public void mortgage_daily_payables(Int64 trans_header_id, Int64 customer_id, int user_id, int period, DateTime trans_date, 
-                                    decimal amount_borrowed, decimal total_interest, decimal daily_amount_payables, DateTime date_started, DateTime date_end)
+        public void mortgage_daily_payables(Int64 trans_header_id, Int64 customer_id, int user_id, int period, DateTime trans_date,decimal amount_borrowed, 
+            decimal total_interest, decimal daily_amount_payables, DateTime date_started, DateTime date_end, decimal daily_amount_interest)
         {
             crm_mortgage_daily_payables mdp = new crm_mortgage_daily_payables();
             mdp.crm_customer_id = customer_id;
@@ -210,6 +263,7 @@ namespace MortgageSystem.Views
             mdp.daily_amount_payables = daily_amount_payables;
             mdp.date_started = date_started;
             mdp.date_ended = date_end;
+            mdp.daily_amount_interest = daily_amount_interest;
 
             db.crm_mortgage_daily_payables.Add(mdp);
             db.SaveChanges();
@@ -217,8 +271,8 @@ namespace MortgageSystem.Views
         }
 
         
-        public void update_mortgage_daily_payables(Int64 trans_header_id, Int64 customer_id, int user_id, int period, DateTime trans_date,
-                                    decimal amount_borrowed, decimal total_interest, decimal daily_amount_payables, DateTime date_started, DateTime date_end)
+        public void update_mortgage_daily_payables(Int64 trans_header_id, Int64 customer_id, int user_id, int period, DateTime trans_date, decimal amount_borrowed,
+                       decimal total_interest, decimal daily_amount_payables, DateTime date_started, DateTime date_end,decimal daily_amount_interest)
         {
             crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == trans_header_id);
             mdp.crm_customer_id = customer_id;
@@ -230,6 +284,8 @@ namespace MortgageSystem.Views
             mdp.daily_amount_payables = daily_amount_payables;
             mdp.date_started = date_started;
             mdp.date_ended = date_end;
+            mdp.daily_amount_interest = daily_amount_interest;
+
             db.SaveChanges();
 
         }
@@ -293,7 +349,7 @@ namespace MortgageSystem.Views
 
             //Update Mortage payables
             update_mortgage_daily_payables(header_id, Int64.Parse(crm_customer_id), int.Parse(Session["user_id"].ToString()), int.Parse(period), DateTime.Now, decimal.Parse(amount), decimal.Parse(total_interest),
-                                decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date));
+                                decimal.Parse(daily_payable), DateTime.Parse(from_date), DateTime.Parse(to_date), decimal.Parse(daily_interest));
 
             //update payment_collection
             int payment_type_id = 1;//cash

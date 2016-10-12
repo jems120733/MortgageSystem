@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="mortgageModel.crm_employee_contact" Width="1.5" PointX="3.75" PointY="8.875" />
         <EntityTypeShape EntityType="mortgageModel.crm_job_position_mf" Width="1.5" PointX="1.5" PointY="34.375" />
         <EntityTypeShape EntityType="mortgageModel.crm_job_position_tf" Width="1.5" PointX="0.75" PointY="30.875" />
-        <EntityTypeShape EntityType="mortgageModel.crm_mortgage_daily_payables" Width="1.5" PointX="5.25" PointY="29.25" />
+        <EntityTypeShape EntityType="mortgageModel.crm_mortgage_daily_payables" Width="3" PointX="5.25" PointY="29.25" />
         <EntityTypeShape EntityType="mortgageModel.crm_requirements_mf" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="mortgageModel.crm_requirements_tf" Width="1.5" PointX="6" PointY="20.625" />
         <EntityTypeShape EntityType="mortgageModel.crm_seminar_scheduler_mf" Width="1.5" PointX="3.75" PointY="5.25" />

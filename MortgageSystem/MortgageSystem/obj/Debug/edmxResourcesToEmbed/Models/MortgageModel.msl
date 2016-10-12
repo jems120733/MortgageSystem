@@ -138,6 +138,7 @@
     <EntitySetMapping Name="crm_mortgage_daily_payables">
       <EntityTypeMapping TypeName="mortgageModel.crm_mortgage_daily_payables">
         <MappingFragment StoreEntitySet="crm_mortgage_daily_payables">
+          <ScalarProperty Name="daily_amount_interest" ColumnName="daily_amount_interest" />
           <ScalarProperty Name="date_ended" ColumnName="date_ended" />
           <ScalarProperty Name="date_started" ColumnName="date_started" />
           <ScalarProperty Name="daily_amount_payables" ColumnName="daily_amount_payables" />

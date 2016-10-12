@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MortgageSystem.Models.trans_transaction_header>
+﻿@model IEnumerable<MortgageSystem.Models.crm_mortgage_daily_payables>
 
 @{
     ViewBag.Title = "Index";
@@ -45,17 +45,17 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @item.sales_date.ToString("MM/dd/yyyy")
+            @item.date_started.ToString("MM/dd/yyyy")
         </td>
         <td>            
-            @item.date_created.ToString("MM/dd/yyyy")
+            @item.date_ended.ToString("MM/dd/yyyy")
         </td>
         
         <td>
-            @Html.DisplayFor(modelItem => item.comment)
+            @Html.DisplayFor(modelItem => item.trans_transaction_header.comment)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.crm_branch.description)
+            @Html.DisplayFor(modelItem => item.trans_transaction_header.crm_branch.description)
         </td>
         
         <td>
@@ -64,7 +64,7 @@
                             + item.crm_customer.first_name + " "
                             + item.crm_customer.middle_name,
                             "Payment_form", 
-                            new { id=item.id })
+                            new { id=item.trans_transaction_header_id })
             
         </td>
         <td>
@@ -73,16 +73,16 @@
         
         
         <td>
-            @Html.DisplayFor(modelItem => item.mf_status.description)
+            @Html.DisplayFor(modelItem => item.trans_transaction_header.mf_status.description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.mf_status1.description)
+            @Html.DisplayFor(modelItem => item.trans_transaction_header.mf_status1.description)
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id= item.trans_transaction_header_id }) |
+            @Html.ActionLink("Details", "Details", new { id= item.trans_transaction_header_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id= item.trans_transaction_header_id })
         </td>
     </tr>
 }

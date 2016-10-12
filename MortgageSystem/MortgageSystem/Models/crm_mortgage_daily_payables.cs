@@ -25,6 +25,7 @@ namespace MortgageSystem.Models
         public decimal daily_amount_payables { get; set; }
         public System.DateTime date_started { get; set; }
         public System.DateTime date_ended { get; set; }
+        public decimal daily_amount_interest { get; set; }
     
         public virtual crm_customer crm_customer { get; set; }
         public virtual crm_user crm_user { get; set; }

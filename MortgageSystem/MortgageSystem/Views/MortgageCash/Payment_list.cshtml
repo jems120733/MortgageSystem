@@ -36,7 +36,7 @@
         <th></th>
     </tr>
 
-    @{ decimal current_payable = 0;  decimal open_balance = 0; }
+    @{decimal open_balance = 0; }
     @foreach (var item in ViewBag.list)
     {
         open_balance += item.open_balance_amount * -1;
@@ -52,7 +52,11 @@
             <td>
                 @if (item.crm_collector_id != null)
                 {
-                    @(item.crm_employee.last_name +", "+ item.crm_employee.first_name   +" "+   item.crm_employee.middle_name)
+                    @(item.crm_employee.last_name +", "+ item.crm_employee.first_name   + " " +   item.crm_employee.middle_name)
+                }
+                else
+                {
+                    @("Mortgage Amount")
                 }
             </td>
 
