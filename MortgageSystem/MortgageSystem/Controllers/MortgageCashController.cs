@@ -59,7 +59,7 @@ namespace MortgageSystem.Views
             //return View();
         }
 
-        
+
         //Payment list  
         public ActionResult Payment_list(long id)
         {
@@ -69,6 +69,14 @@ namespace MortgageSystem.Views
             ViewBag.list = list.ToList();
             return View();
         }
+        //public ActionResult Payment_list(long id)
+        //{
+        //    var list = from data in db.trans_payment_collection
+        //               where data.trans_transaction_header_id == id
+        //               select data;
+        //    ViewBag.list = list.ToList();
+        //    return View();
+        //}
 
 
         // GET: MortgageCash/Details/5
