@@ -10,6 +10,9 @@
 <table class="table">
     <tr>
         <th>
+            For date
+        </th>
+        <th>
             Payment Type
         </th>
         <th>
@@ -33,18 +36,17 @@
     {
         <tr>
             <td>
+                @item.sales_date.ToString("MMM dd, yyyy")
+            </td>
+            <td>
                 @item.mf_payment_type.Description
             </td>
 
             <td>
                 @if (item.crm_collector_id != null)
                 {
-                    @item.crm_employee.last_name 
-
-                   
+                    @(item.crm_employee.last_name +", "+ item.crm_employee.first_name   +" "+   item.crm_employee.middle_name)
                 }
-                
-                
             </td>
 
             <td>
