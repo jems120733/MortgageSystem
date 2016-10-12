@@ -311,6 +311,7 @@
           <Property Name="sales_date" Type="date" Nullable="false" />
           <Property Name="comment" Type="varchar" MaxLength="255" />
           <Property Name="discount_amount" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="penalty_amount" Type="decimal" Precision="20" Scale="2" />
         </EntityType>
         <EntityType Name="trans_transaction_detail">
           <Key>
@@ -2182,6 +2183,7 @@
           <NavigationProperty Name="mf_payment_type" Relationship="mortgageModel.FK_trans_payment_collection_mf_payment_type_id" FromRole="trans_payment_collection" ToRole="mf_payment_type" />
           <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_payment_collection_mf_status_id" FromRole="trans_payment_collection" ToRole="mf_status" />
           <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" FromRole="trans_payment_collection" ToRole="trans_transaction_header" />
+          <Property Name="penalty_amount" Type="Decimal" Precision="20" Scale="2" />
         </EntityType>
         <EntityType Name="trans_transaction_detail">
           <Key>
@@ -3382,6 +3384,7 @@
           <EntitySetMapping Name="trans_payment_collection">
             <EntityTypeMapping TypeName="mortgageModel.trans_payment_collection">
               <MappingFragment StoreEntitySet="trans_payment_collection">
+                <ScalarProperty Name="penalty_amount" ColumnName="penalty_amount" />
                 <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
                 <ScalarProperty Name="comment" ColumnName="comment" />
                 <ScalarProperty Name="sales_date" ColumnName="sales_date" />

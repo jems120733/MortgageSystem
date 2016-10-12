@@ -306,6 +306,7 @@
     <Property Name="sales_date" Type="date" Nullable="false" />
     <Property Name="comment" Type="varchar" MaxLength="255" />
     <Property Name="discount_amount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="penalty_amount" Type="decimal" Precision="20" Scale="2" />
   </EntityType>
   <EntityType Name="trans_transaction_detail">
     <Key>

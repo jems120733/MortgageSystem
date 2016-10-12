@@ -21,30 +21,35 @@ namespace MortgageSystem.Views
             Session["user_id"] = 1;
             //var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
             var crm_mortgage_daily_payables = db.crm_mortgage_daily_payables.Include(t => t.trans_transaction_header).Include(t => t.crm_customer);
+            crm_mortgage_daily_payables = crm_mortgage_daily_payables.AsNoTracking();
             return View(await crm_mortgage_daily_payables.ToListAsync());
         }
 
         // GET: Payment_form        
         public ActionResult Payment_form(Int64 id)
         {
+            DateTime last_payment_date;
             try
             {
                 trans_payment_collection pc = db.trans_payment_collection.OrderBy(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);
-                ViewBag.last_payment_date = pc.sales_date.ToShortDateString();
+                last_payment_date = DateTime.Parse(pc.sales_date.ToString());
             }
             catch
             {
-                ViewBag.last_payment_date = "No payment has been made";
+                last_payment_date = DateTime.Now;
             }
 
+            ViewBag.last_payment_date = last_payment_date.ToShortDateString();
+
             trans_transaction_header th = db.trans_transaction_header.Find(id);
-            ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;            
+            ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;
             ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
-            ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id","last_name");
+            ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id", "last_name");
             ViewBag.header_id = id;
 
-            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
-            ViewBag.amount = mdp.daily_amount_payables;
+            //crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+            //here
+            ViewBag.amount = payable_amount(id, last_payment_date, DateTime.Now);
             return View();
         }
 
@@ -54,8 +59,12 @@ namespace MortgageSystem.Views
         {
             DateTime last_payment = DateTime.Parse(last_payment_date);
             DateTime current_sales_date = DateTime.Parse(sales_date);
-
             Double date_diff = (current_sales_date - last_payment).TotalDays;
+            Int64 header_id = Int64.Parse(id);
+
+            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == header_id);
+            decimal di = decimal.Parse(mdp.daily_amount_interest.ToString());
+
             date_diff = int.Parse(date_diff.ToString());
 
             if (date_diff == 1)
@@ -71,6 +80,7 @@ namespace MortgageSystem.Views
                 pc.sales_date = DateTime.Parse(sales_date);
                 pc.comment = comment;
                 pc.mf_status_id = 5;
+                pc.penalty_amount = 0;
                 db.trans_payment_collection.Add(pc);
                 //await db.SaveChangesAsync();
             }
@@ -78,6 +88,7 @@ namespace MortgageSystem.Views
             {
                 for (int x = 1; x <= date_diff; x++)
                 {
+                    decimal penalty_amount = 0;
                     if (last_payment.AddDays(x) != current_sales_date)
                     {
                         trans_payment_collection pc = new trans_payment_collection();
@@ -86,11 +97,13 @@ namespace MortgageSystem.Views
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
                         pc.amount = 0;
-                        pc.open_balance_amount = 0;
+                        pc.open_balance_amount = decimal.Parse(amount) * -1 + di * (-1);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = last_payment.AddDays(x);
                         pc.comment = comment;
                         pc.mf_status_id = 5;
+                        pc.penalty_amount = di * x;
+                        penalty_amount = di * x;
                         db.trans_payment_collection.Add(pc);
                         //await db.SaveChangesAsync();
                     }
@@ -101,21 +114,63 @@ namespace MortgageSystem.Views
                         pc.mf_payment_type_id = int.Parse(mf_payment_type_id);
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
-                        pc.amount = decimal.Parse(amount);
+                        pc.amount = decimal.Parse(amount) + penalty_amount;
                         pc.open_balance_amount = decimal.Parse(amount);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = DateTime.Parse(sales_date);
                         pc.comment = comment;
                         pc.mf_status_id = 5;
+                        pc.penalty_amount = 0;
                         db.trans_payment_collection.Add(pc);
                         //await db.SaveChangesAsync();
                     }
                 }
                 await db.SaveChangesAsync();
             }
-            return RedirectToAction("Index");
-            
+            return RedirectToAction("Payment_list", header_id);
+
             //return View();
+        }
+
+
+        public decimal payable_amount(Int64 header_id,DateTime last_payment_date, DateTime sales_date)
+        {
+            decimal total_payable = 0;
+
+            DateTime last_payment = last_payment_date; 
+            DateTime current_sales_date = sales_date;
+            int date_diff = int.Parse(((current_sales_date - last_payment).TotalDays).ToString());
+            //Double date_diff = (current_sales_date - last_payment).TotalDays;
+            //here
+            //date_diff = int.Parse(date_diff.ToString());
+
+            crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == header_id);
+                decimal di = decimal.Parse(mdp.daily_amount_interest.ToString());
+                decimal daily_payable = decimal.Parse(mdp.daily_amount_payables.ToString());
+
+            Double total_di = Double.Parse(di.ToString()) * Double.Parse(date_diff.ToString());
+            if (date_diff == 1)
+                {
+                    total_payable = daily_payable;
+                }
+                else
+                {
+                    for (int x = 1; x <= date_diff; x++)
+                    {
+                        
+                        if (last_payment.AddDays(x) != current_sales_date)
+                        {                            
+                            total_payable += daily_payable;
+                        }
+                        else
+                        {
+                            total_payable += daily_payable;
+                        }
+                    }
+                
+                }
+
+                return  decimal.Parse(date_diff.ToString());
         }
 
         
@@ -125,7 +180,7 @@ namespace MortgageSystem.Views
             var list = from data in db.trans_payment_collection
                        where data.trans_transaction_header_id == id
                        select data;
-            ViewBag.list = list.ToList();
+            ViewBag.list = list.AsNoTracking().ToList();
             return View();
         }
 
@@ -243,6 +298,7 @@ namespace MortgageSystem.Views
             pc.sales_date = sales_date;
             pc.comment = comment;
             pc.discount_amount = discount;
+            pc.penalty_amount = 0;
 
             db.trans_payment_collection.Add(pc);
             db.SaveChanges();

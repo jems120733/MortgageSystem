@@ -28,6 +28,7 @@ namespace MortgageSystem.Models
         public System.DateTime sales_date { get; set; }
         public string comment { get; set; }
         public Nullable<decimal> discount_amount { get; set; }
+        public Nullable<decimal> penalty_amount { get; set; }
     
         public virtual crm_branch crm_branch { get; set; }
         public virtual crm_employee crm_employee { get; set; }

@@ -324,6 +324,7 @@
     <EntitySetMapping Name="trans_payment_collection">
       <EntityTypeMapping TypeName="mortgageModel.trans_payment_collection">
         <MappingFragment StoreEntitySet="trans_payment_collection">
+          <ScalarProperty Name="penalty_amount" ColumnName="penalty_amount" />
           <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
           <ScalarProperty Name="comment" ColumnName="comment" />
           <ScalarProperty Name="sales_date" ColumnName="sales_date" />
