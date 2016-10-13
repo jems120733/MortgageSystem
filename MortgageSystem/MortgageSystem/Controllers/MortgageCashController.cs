@@ -175,6 +175,9 @@ namespace MortgageSystem.Views
                 
                 }
 
+                //if daily interest < 0, meaning, paid
+                if(total_di < 0)
+                    { total_di = 0; }
             return decimal.Parse(total_payable.ToString()) + total_di;
         }
 
