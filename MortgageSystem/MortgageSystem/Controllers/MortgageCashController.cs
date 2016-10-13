@@ -34,15 +34,19 @@ namespace MortgageSystem.Views
             {
                 trans_payment_collection pc = db.trans_payment_collection.OrderByDescending(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);
                 last_payment_date = DateTime.Parse(pc.sales_date.ToString());
+                ViewBag.last_payment_date = last_payment_date.ToShortDateString();
+                ViewBag.message = last_payment_date.ToShortDateString();
 
             }
             catch
             {
                 crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
                 last_payment_date = DateTime.Parse((mdp.date_started.AddDays(-1).ToString()));
+                ViewBag.last_payment_date = last_payment_date.ToShortDateString();
+                ViewBag.message = last_payment_date.AddDays(1).ToShortDateString() + " - Started date";
             }
 
-            ViewBag.last_payment_date = last_payment_date.ToShortDateString();
+           
 
             trans_transaction_header th = db.trans_transaction_header.Find(id);
             ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;
@@ -150,10 +154,10 @@ namespace MortgageSystem.Views
                 decimal daily_payable = decimal.Parse(mdp.daily_amount_payables.ToString());
 
             decimal total_di = decimal.Parse(di.ToString()) *(date_diff - 1);
-            if (date_diff == 1)
-                {
-                    total_payable = daily_payable;
-                }
+                if (date_diff == 1)
+                    {
+                        total_payable = daily_payable;
+                    }
                 else
                 {
                     for (int x = 1; x <= date_diff; x++)

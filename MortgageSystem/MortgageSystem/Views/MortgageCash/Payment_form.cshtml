@@ -14,15 +14,16 @@
     <div class="form-horizontal">
         <h4>Mortgage Cash</h4>
         <hr />
-
-        
         <div class="form-group">
             @Html.Label("Last Paid", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Editor("last_payment_date", new { htmlAttributes = new { @class = "form-control required", @readonly = "readonly", @value = ViewBag.last_payment_date } })
+                 @Html.Editor("message", new { htmlAttributes = new { @class = "form-control required", @value = ViewBag.message } })
             </div>
         </div>
 
+        <!-- last_payment_date -->
+        <input type="hidden" name="last_payment_date" value="@ViewBag.last_payment_date" />
+        
 
         <div class="form-group">
             @Html.Label("Payment for date", htmlAttributes: new { @class = "control-label col-md-2" })
