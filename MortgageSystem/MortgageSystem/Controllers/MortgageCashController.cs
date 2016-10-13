@@ -29,14 +29,17 @@ namespace MortgageSystem.Views
         public ActionResult Payment_form(Int64 id)
         {
             DateTime last_payment_date;
+
             try
             {
-                trans_payment_collection pc = db.trans_payment_collection.OrderBy(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);
+                trans_payment_collection pc = db.trans_payment_collection.OrderByDescending(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);
                 last_payment_date = DateTime.Parse(pc.sales_date.ToString());
+
             }
             catch
             {
-                last_payment_date = DateTime.Now;
+                crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+                last_payment_date = DateTime.Parse((mdp.date_started.AddDays(-1).ToString()));
             }
 
             ViewBag.last_payment_date = last_payment_date.ToShortDateString();
@@ -48,6 +51,7 @@ namespace MortgageSystem.Views
             ViewBag.header_id = id;
 
             //crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
+            //mdp.daily_amount_payables
             //here
             ViewBag.amount = payable_amount(id, last_payment_date, DateTime.Now);
             return View();
@@ -97,7 +101,7 @@ namespace MortgageSystem.Views
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
                         pc.amount = 0;
-                        pc.open_balance_amount = decimal.Parse(amount) * -1 + di * (-1);
+                        pc.open_balance_amount = di * -1;//decimal.Parse(amount) * -1 + di * (-1);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = last_payment.AddDays(x);
                         pc.comment = comment;
@@ -127,7 +131,7 @@ namespace MortgageSystem.Views
                 }
                 await db.SaveChangesAsync();
             }
-            return RedirectToAction("Payment_list", header_id);
+            return RedirectToAction("Payment_list" +"/"+ header_id);
 
             //return View();
         }
@@ -137,18 +141,15 @@ namespace MortgageSystem.Views
         {
             decimal total_payable = 0;
 
-            DateTime last_payment = last_payment_date; 
-            DateTime current_sales_date = sales_date;
-            int date_diff = int.Parse(((current_sales_date - last_payment).TotalDays).ToString());
-            //Double date_diff = (current_sales_date - last_payment).TotalDays;
-            //here
-            //date_diff = int.Parse(date_diff.ToString());
+            DateTime last_payment = last_payment_date.Date; 
+            DateTime current_sales_date = sales_date.Date;
+            decimal date_diff = decimal.Parse(((current_sales_date.Date - last_payment.Date).TotalDays).ToString());
 
             crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == header_id);
                 decimal di = decimal.Parse(mdp.daily_amount_interest.ToString());
                 decimal daily_payable = decimal.Parse(mdp.daily_amount_payables.ToString());
 
-            Double total_di = Double.Parse(di.ToString()) * Double.Parse(date_diff.ToString());
+            decimal total_di = decimal.Parse(di.ToString()) *(date_diff - 1);
             if (date_diff == 1)
                 {
                     total_payable = daily_payable;
@@ -170,7 +171,7 @@ namespace MortgageSystem.Views
                 
                 }
 
-                return  decimal.Parse(date_diff.ToString());
+            return decimal.Parse(total_payable.ToString()) + total_di;
         }
 
         
@@ -180,7 +181,7 @@ namespace MortgageSystem.Views
             var list = from data in db.trans_payment_collection
                        where data.trans_transaction_header_id == id
                        select data;
-            ViewBag.list = list.AsNoTracking().ToList();
+            ViewBag.list = list.ToList();
             return View();
         }
 
