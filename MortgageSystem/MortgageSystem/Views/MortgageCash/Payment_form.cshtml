@@ -17,21 +17,20 @@
         <div class="form-group">
             @Html.Label("Last Paid", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                 @Html.Editor("message", new { htmlAttributes = new { @class = "form-control required", @value = ViewBag.message } })
+                 @Html.Editor("message", new { htmlAttributes = new { @class = "form-control required", @value = ViewBag.message, @readonly="readonly" } })
             </div>
         </div>
 
         <!-- last_payment_date -->
         <input type="hidden" name="last_payment_date" value="@ViewBag.last_payment_date" />
-        
 
         <div class="form-group">
-            @Html.Label("Payment for date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="Comment:">Payment for Date:</label>
             <div class="col-md-10">
-                @Html.Editor("sales_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", required = "required", @Value = DateTime.Now.ToShortDateString() } })
+                <input autocomplete="off" class="form-control required text-box single-line datepicker" data-date-format="mm/dd/yyyy" id="sales_date" name="sales_date" value="" type="text">
             </div>
         </div>
-
+       
         <div class="form-group">
             @Html.Label("Mortgagor", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

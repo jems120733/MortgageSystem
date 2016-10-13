@@ -75,6 +75,7 @@ namespace MortgageSystem.Controllers
                 return HttpNotFound();
             }
             ViewBag.crm_civil_status_id = new SelectList(db.crm_civil_status, "id", "description", crm_employee.crm_civil_status_id);
+            ViewBag.birthday = crm_employee.birthday.ToShortDateString();
             return View(crm_employee);
         }
 

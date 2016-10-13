@@ -14,11 +14,11 @@
     <div class="form-horizontal">
         <h4>Mortgage Cash</h4>
         <hr />
-
-        <div class="form-group">
-            @Html.Label("From Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        <div class="form-group">            
+            <label class="control-label col-md-2" for="Comment:">From Date:</label>
             <div class="col-md-10">
-                @Html.Editor("from_date", new { htmlAttributes = new { @class = "form-control required form_date ", autocomplete = "off", required = "required" } })
+                <input autocomplete="off"  class="form-control required text-box single-line datepicker compute_date" data-date-format="mm/dd/yyyy" id="from_date" name="from_date" value="" type="text">
             </div>
         </div>
 

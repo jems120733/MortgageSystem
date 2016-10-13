@@ -112,15 +112,6 @@
     </div>
 
 
-    <div class="control-group">
-        <label class="control-label">Date Picking</label>
-        <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-            <input size="16" type="text" value="" readonly>
-            <span class="add-on"><i class="icon-remove"></i></span>
-            <span class="add-on"><i class="icon-th"></i></span>
-        </div>
-        <input type="hidden" id="dtp_input2" value="" /><br />
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -179,7 +170,7 @@
             $('#to_date').datepicker();
         });
 
-        $('.form_date').datetimepicker({
+        $('.datepicker').datetimepicker({
             language: 'fr',
             weekStart: 1,
             todayBtn: 1,
@@ -188,6 +179,10 @@
             startView: 2,
             minView: 2,
             forceParse: 0
+        });
+
+        $('.compute_date').on('change', function () {
+            getdate();
         });
     </script>
 </body>
