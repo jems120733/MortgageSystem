@@ -242,3 +242,4 @@ D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\Mortgage
 D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.dll
 D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.pdb
+D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.csprojResolveAssemblyReference.cache

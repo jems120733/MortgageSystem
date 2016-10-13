@@ -25,10 +25,26 @@ namespace MortgageSystem.Views
             return View(await crm_mortgage_daily_payables.ToListAsync());
         }
 
+
+        public DateTime get_date_started(Int64 header_id)
+        {
+            try
+            {
+                crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == header_id);
+                return DateTime.Parse(mdp.date_started.ToString());
+            }
+            catch
+            {
+                return DateTime.Now;
+            }
+        }
         // GET: Payment_form        
+        DateTime global_date_started;
         public ActionResult Payment_form(Int64 id)
         {
             DateTime last_payment_date;
+            
+            
 
             try
             {
@@ -67,6 +83,9 @@ namespace MortgageSystem.Views
         {
             DateTime last_payment = DateTime.Parse(last_payment_date);
             DateTime current_sales_date = DateTime.Parse(sales_date);
+
+            //here
+            DateTime date_started = get_date_started(Int64.Parse(id));
             Double date_diff = (current_sales_date - last_payment).TotalDays;
             Int64 header_id = Int64.Parse(id);
 
@@ -75,7 +94,8 @@ namespace MortgageSystem.Views
 
             date_diff = int.Parse(date_diff.ToString());
 
-            if (date_diff == 1)
+            //here
+            if (date_diff == 1 || (date_started.Date == current_sales_date.Date))
             {
                 trans_payment_collection pc = new trans_payment_collection();
                 pc.trans_transaction_header_id = Int64.Parse(id);
@@ -133,8 +153,9 @@ namespace MortgageSystem.Views
                         //await db.SaveChangesAsync();
                     }
                 }
-                await db.SaveChangesAsync();
+                
             }
+            await db.SaveChangesAsync();
             return RedirectToAction("Payment_list" +"/"+ header_id);
 
             //return View();
@@ -177,7 +198,7 @@ namespace MortgageSystem.Views
 
                 //if daily interest < 0, meaning, paid
                 if(total_di < 0)
-                    { total_di = 0; }
+                    { total_di = 0;};
             return decimal.Parse(total_payable.ToString()) + total_di;
         }
 
