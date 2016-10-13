@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            Trans#
+        </th>
+        <th>
             From Date
         </th>
         <th>
@@ -44,6 +47,14 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+             
+           
+            @Html.ActionLink(@item.trans_transaction_header_id.ToString(), "payment_list", new { id = item.trans_transaction_header_id })
+
+
+
+        </td>
         <td>
             @item.date_started.ToString("MM/dd/yyyy")
         </td>
