@@ -119,7 +119,7 @@
 
         //Global Variable
         function getdate() {
-            var period = parseFloat($("#period").val());
+            var period = parseFloat($("#period").val()) - 1;
             var tt = document.getElementById('from_date').value;
 
             var date = new Date(tt);

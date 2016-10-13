@@ -286,7 +286,7 @@ namespace MortgageSystem.Views
             //Save payment_collection
             int payment_type_id = 1;//cash
             payment_collection(th.id, payment_type_id, int.Parse(Session["user_id"].ToString()), int.Parse(crm_branch_id), 5, decimal.Parse(amount),
-                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0);
+                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0, decimal.Parse(total_interest));
 
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -294,7 +294,7 @@ namespace MortgageSystem.Views
 
 
         public void update_payment_collection(Int64 trans_header_id, int payment_type_id, int user_id, int branch_id, int is_void_status_id,
-            decimal amount, decimal open_balance_amount, DateTime payment_date, DateTime sales_date, string comment, decimal discount)
+            decimal amount, decimal open_balance_amount, DateTime payment_date, DateTime sales_date, string comment, decimal discount, decimal total_interest)
         {            
             trans_payment_collection pc = db.trans_payment_collection.First(x => x.trans_transaction_header_id == trans_header_id);
             pc.trans_transaction_header_id = trans_header_id;
@@ -303,7 +303,7 @@ namespace MortgageSystem.Views
             pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
-            pc.open_balance_amount = amount * (-1);
+            pc.open_balance_amount = ( total_interest + amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;
             pc.comment = comment;
@@ -313,7 +313,7 @@ namespace MortgageSystem.Views
 
         }
         public void payment_collection(Int64 trans_header_id,int payment_type_id, int user_id, int branch_id,int is_void_status_id,
-            decimal amount,decimal open_balance_amount, DateTime payment_date, DateTime sales_date,string comment, decimal discount)
+            decimal amount,decimal open_balance_amount, DateTime payment_date, DateTime sales_date,string comment, decimal discount, decimal total_interest)
         {
             trans_payment_collection pc = new trans_payment_collection();
             pc.trans_transaction_header_id = trans_header_id;
@@ -322,13 +322,13 @@ namespace MortgageSystem.Views
             pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
-            pc.open_balance_amount = amount * (-1);
+            pc.open_balance_amount = (total_interest+ amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;
             pc.comment = comment;
             pc.discount_amount = discount;
             pc.penalty_amount = 0;
-
+            //pc.penalty_amount = (total_interest + total_interest )* (-1);
             db.trans_payment_collection.Add(pc);
             db.SaveChanges();
 
@@ -439,7 +439,7 @@ namespace MortgageSystem.Views
             //update payment_collection
             int payment_type_id = 1;//cash
             update_payment_collection(th.id, payment_type_id, int.Parse(Session["user_id"].ToString()), int.Parse(crm_branch_id), 5, decimal.Parse(amount),
-                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0);
+                decimal.Parse(amount), DateTime.Now,DateTime.Parse(from_date), comment, 0, decimal.Parse(total_interest));
 
 
 
