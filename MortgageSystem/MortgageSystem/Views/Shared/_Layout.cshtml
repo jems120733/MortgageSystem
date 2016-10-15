@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
+
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +87,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transaction<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Mortgage Cash", "Index", "MortgageCash")</li>
-                            <li>@Html.ActionLink("Mortgage Inventory", "Index", "PTDatas")</li>
+                            <li>@Html.ActionLink("Mortgage Inventory", "Index", "MortgageInventory")</li>
                             <li>@Html.ActionLink("Purchase Invoice", "Index", "PTDatas")</li>
                             <li>@Html.ActionLink("Purchase Return", "Index", "PTDatas")</li>
                             <li>@Html.ActionLink("Sales Invoice", "Index", "PTDatas")</li>
@@ -184,6 +186,10 @@
         $('.compute_date').on('change', function () {
             getdate();
         });
+
+        
+
+
     </script>
 </body>
 </html>

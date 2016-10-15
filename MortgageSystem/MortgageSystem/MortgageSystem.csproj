@@ -216,6 +216,7 @@
     <Compile Include="Controllers\job_position_detailController.cs" />
     <Compile Include="Controllers\job_position_mfController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MortgageInventoryController.cs" />
     <Compile Include="Controllers\paymenttypeController.cs" />
     <Compile Include="Controllers\pricebook_detailController.cs" />
     <Compile Include="Controllers\pricebook_headerController.cs" />
@@ -770,6 +771,9 @@
     <Content Include="Views\MortgageCash\Index.cshtml" />
     <Content Include="Views\MortgageCash\Payment_form.cshtml" />
     <Content Include="Views\MortgageCash\Payment_list.cshtml" />
+    <Content Include="Views\MortgageInventory\Index.cshtml" />
+    <Content Include="Views\MortgageInventory\Create.cshtml" />
+    <Content Include="Views\Shared\clonejs.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
