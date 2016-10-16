@@ -25,11 +25,36 @@ namespace MortgageSystem.Controllers
         }
 
 
-        //GET Create
+        //GET Create Inventory
         public ActionResult Inventory()
         {
             ViewBag.inv_item_id = new SelectList(db.inv_item, "id", "short_description");
+            ViewBag.inv_uom_id = new SelectList(db.inv_uom, "id", "description");
             return View();
+        }
+
+        //POST Create
+        
+        public void inventory_add(string id, string inv_item_id, string inv_uom_id, string qty, string price, string extended)
+        {
+            trans_transaction_detail td = new trans_transaction_detail();
+                td.trans_transaction_header_id = Int64.Parse(id);
+                td.inv_item_id = int.Parse(item_id);
+                td.inv_uom_id = int.Parse(uom_id);
+                td.mf_tax_id = 1;
+                td.crm_user_id = int.Parse(Session["user_id"].ToString());
+                td.mf_status_id = 5; //not voided#
+                td.qty = decimal.Parse(qty);
+                td.inv_qty = decimal.Parse(qty) * -1;
+                td.tax_amount = 0;
+                td.price_wo_tax = decimal.Parse(extended);
+                td.discount_rate = 0;
+                td.discount_amount = 0;
+                td.line_discount_amount_applied = 0;
+                td.sub_total = decimal.Parse(extended);
+                td.extended_total = decimal.Parse(extended);
+            db.trans_transaction_detail.Add(td);
+            db.SaveChanges();
         }
 
         //GET List
