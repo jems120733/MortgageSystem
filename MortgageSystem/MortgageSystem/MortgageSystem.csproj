@@ -359,6 +359,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\MortgageCashController.cs" />
+    <Compile Include="Models\utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -772,8 +773,12 @@
     <Content Include="Views\MortgageCash\Payment_form.cshtml" />
     <Content Include="Views\MortgageCash\Payment_list.cshtml" />
     <Content Include="Views\MortgageInventory\Index.cshtml" />
-    <Content Include="Views\MortgageInventory\Create.cshtml" />
+    <Content Include="Views\MortgageInventory\Create_clone.cshtml" />
     <Content Include="Views\Shared\clonejs.js" />
+    <Content Include="Views\MortgageInventory\Create.cshtml" />
+    <Content Include="Views\MortgageInventory\Inventory.cshtml" />
+    <Content Include="Views\MortgageInventory\Inventory_list.cshtml" />
+    <Content Include="Views\MortgageInventory\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

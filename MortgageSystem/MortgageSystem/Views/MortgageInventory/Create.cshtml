@@ -1,86 +1,199 @@
-﻿
+﻿@model MortgageSystem.Models.trans_transaction_header
+
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
-<p>
-    @Html.ActionLink("Index", "Index")
-</p>
-
-@*<style type="text/css">
-        body {
-            padding: 10px;
-        }
-
-        .clonedInput {
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #def;
-            margin-bottom: 10px;
-        }
-
-            .clonedInput div {
-                margin: 5px;
-            }
-    </style>*@
-
+<h2>@ViewBag.id</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    //#clone
-    //Good
-    <div class="content">
-        <div id="data-container" class="data-container">
-            <input id="product" class="1 text-box" name="product" value="" type="text">
-            <input id="qty" class="1 required text-box" autocomplete="off"  name="qty" value="" type="text">
-            <input id="price" class="1 required text-box" autocomplete="off" name="price" value="" type="text">
-            <input id="extended" class="1 required text-box" autocomplete="off" name="extended" value="" type="text">
-            <button class="plus-button btn-primary" type="button">+</button>
+    <div class="form-horizontal">
+        <h4>Mortgage Inventory</h4>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Comment:">From Date:</label>
+            <div class="col-md-10">
+                <input autocomplete="off"  required="required" class="form-control  text-box single-line datepicker compute_date" data-date-format="mm/dd/yyyy" id="from_date" name="from_date" value="" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("To Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("to_date", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off", @readonly = "readonly", required = "required" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Comment:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("comment", new { htmlAttributes = new { @class = "form-control required", autocomplete = "off" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.crm_branch_id, "Branch", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("crm_branch_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.crm_branch_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.crm_customer_id, "Customer/Mortgagor", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("crm_customer_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.crm_customer_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mf_open_status_id, "Mortgage Status", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("mf_open_status_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.mf_open_status_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("period", "Period", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("period", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("rate", "rate", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10"> 
+                @Html.DropDownList("rate", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("amount", new { htmlAttributes = new { @class = "form-control required", @readonly = "readonly", autocomplete = "off", required = "required",Value="0" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Daily Payable", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("daily_payable", new { htmlAttributes = new { @class = "form-control required", @readonly = "readonly", Value = "0" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Total Payable", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("total_amount", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", Value = "0" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Daily Interest", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("daily_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", Value = "0" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Total Interest", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("total_interest", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", Value = "0" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="create" name="create" value="Create" class="btn btn-primary" />
+                @*<input type="button" id="create" name="create" value="View" class="btn btn-success" />*@
+            </div>
         </div>
     </div>
 
-
-
-
     
+}
 
-            <div class="actions">
-                <button class="btn btn-primary" type="submit">Create</button>
-            </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
-            }
+@section Scripts 
+    {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript">
+            @*function updateData() {
+                $("#saveButton").click(function () {
+                    var PersonalDetails = {
+                        "CampaignName": $("#CampaignName").val(),
+                        "Clicks": $("#Clicks").val(),
+                        "Conversions": $("#Conversions").val(),
+                        "Impressions": $("#Impressions").val(),
+                        "AffiliateName": $("#AffiliateName").val(),
+                        "id": $("#id").val(),
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: '/DevTestMVC/Edit',
+                        data: JSON.stringify(PersonalDetails),
+                        contentType: "application/json;charset=utf-8",
+                        success: function (data, status, xhr) {
+                            alert("Ok na edited");
+                        },
 
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
 
-                <script type="text/javascript">
-                    //#1
-                    $(document).ready(function () {
-                        $('.plus-button').click(AddNewRow);
+                        error: function (xhr) {
+
+                            alert(xhr.responseText);
+                        }
                     });
-
-                    function AddNewRow(event) {
-                        //var clone = $('.data-container').last().clone().appendTo('.content');
-                        var clone = $('.data-container').last().clone().appendTo('.content');
-                        clone.children('.1').val(''); //delete all values of your clone
-                        clone.children('.plus-button').bind('click', AddNewRow);
-
-                        var btn = $(this).parent().find('.plus-button');  //The cloned button
-                        btn.text('-');
-                        btn.removeClass('plus-button');
-                        btn.addClass('btn-danger');
-                        btn.unbind('click');  //unbind the "old" click event
-                        btn.click(RemoveRow);
-                    }
-                    function RemoveRow(event) {
-                        $(this).parent().remove();
-                    }
-
-
-                </script>
+                });
             }
+            updateData();*@
+
+            //Load to div conditional Better Code
+           
+
+                //$("#create").click(function () {
+                //    $.ajax({
+                //        url: '/MortgageInventory/Inventory', //Controller name
+                //        contentType: 'application/html; charset=utf-8',
+                //        type: 'GET',
+                //        dataType: 'html'
+                //    })
+                //    .success(function (result) {
+                //        $('#inventory').html(result);
+                //    })
+                //    .error(function (xhr, status) {
+                //        $('#inventory').text("Page not Found!");
+                //    })
+                //});
+
+                @*$("#create").click(function () {
+
+                    $.ajax({
+                        url: '/MortgageInventory/Inventory_list/' + @ViewBag.id, //Controller name
+                        contentType: 'application/html; charset=utf-8',
+                        type: 'GET',
+                        dataType: 'html'
+                    })
+                    .success(function (result) {
+                        $('#inventory_list').html(result);
+                    })
+                    .error(function (xhr, status) {
+                        $('#inventory_list').text("Page not Found!");
+                    })
+                });*@
+    </script>
 
 
+
+}

@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <h3>Select Item</h3>
+    <table class="table">
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Extended</th>
+        <th>Action</th>
+        <tr>
+            <td>                           
+                @Html.DropDownList("inv_item_id", null, htmlAttributes: new { @class = "form-control" })
+           </td>
+            <td>
+                <input autocomplete="off" class="form-control required text-box single-line" id="qty" name="qty" value="" type="text">
+            </td>
+            <td>
+                <input autocomplete="off" class="form-control required text-box single-line" id="price" name="price" value="" type="text">
+            </td>
+            <td>
+                <input autocomplete="off" class="form-control required text-box single-line" id="extended" name="extended" value="" type="text">
+            </td>
+            <td>
+                <input type="button" id="create" name="create" value="+" class="btn btn-success" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

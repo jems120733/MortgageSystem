@@ -17,15 +17,10 @@ namespace MortgageSystem.Views
 
         // GET: MortgageCash
         public async Task<ActionResult> Index()
-        {
-            Session["user_id"] = 1;
-            //var trans_transaction_header = db.trans_transaction_header.Include(t => t.crm_branch).Include(t => t.crm_branch1).Include(t => t.crm_branch2).Include(t => t.crm_customer).Include(t => t.crm_user).Include(t => t.crm_user1).Include(t => t.inv_discount).Include(t => t.mf_document_type).Include(t => t.mf_status).Include(t => t.mf_status1).Include(t => t.trans_transaction_type);
-            //var crm_mortgage_daily_payables = db.crm_mortgage_daily_payables.Include(t => t.trans_transaction_header).Include(t => t.crm_customer);
-            //crm_mortgage_daily_payables = crm_mortgage_daily_payables.First(x=> x.trans_transaction_header.mf_document_type_id == 1 || x.trans_transaction_header.mf_document_type_id == 8);
+        {            
             var crm_mortgage_daily_payable = from data in db.crm_mortgage_daily_payables
-                                             where data.trans_transaction_header.mf_document_type_id == 1
-                                             || data.trans_transaction_header.mf_document_type_id == 8
-                                             select data;
+                                    where data.trans_transaction_header.mf_document_type_id == 1
+                                    select data;
             return View(await crm_mortgage_daily_payable.AsNoTracking().ToListAsync());
         }
 

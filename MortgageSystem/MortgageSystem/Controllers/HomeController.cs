@@ -10,6 +10,7 @@ namespace MortgageSystem.Controllers
     {
         public ActionResult Index()
         {
+            Session["user_id"] = 1;
             return View();
         }
 

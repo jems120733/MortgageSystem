@@ -325,4 +325,3 @@ D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\Mor
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.dll
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.pdb
-D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.csprojResolveAssemblyReference.cache

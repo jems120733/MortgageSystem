@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<h2>Items list</h2>
+<body>
+    <table class="table">
+        @foreach (var item in ViewBag.inventory)
+        { 
+            <tr>
+                <td>@item.inv_item.short_description</td>
+                <td>@item.qty</td>
+                <td>@item.price_w_tax</td>
+                <td>@item.extended_total</td>
+                <td>
+                    <input type="button" id="create" name="Delete" value="-" class="btn btn-danger" />
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
