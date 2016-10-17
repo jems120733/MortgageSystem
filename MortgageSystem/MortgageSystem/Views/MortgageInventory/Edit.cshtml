@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Mortgage Cash</h4>
+        <h4>Mortgage Inventory</h4>
         <hr />
         <div class="form-group">
             <label class="control-label col-md-2" for="Comment:">From Date:</label>
@@ -149,6 +149,8 @@
         add_item();
         list_item();
 
+
+        //Add Item template
         function add_item()
         {
             $.ajax({
@@ -166,6 +168,7 @@
 
         }
 
+        //List Item template
         function list_item()
         {
             $.ajax({
@@ -180,8 +183,11 @@
                 .error(function (xhr, status) {
                     $('#inventory_list').text("Page not Found!");
                 })
-
         }
+
+
+        
+
     </script>
 
 

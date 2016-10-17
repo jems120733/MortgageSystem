@@ -26,21 +26,23 @@ namespace MortgageSystem.Controllers
 
 
         //GET Create Inventory
+        [HttpGet]
         public ActionResult Inventory()
         {
             ViewBag.inv_item_id = new SelectList(db.inv_item, "id", "short_description");
             ViewBag.inv_uom_id = new SelectList(db.inv_uom, "id", "description");
+            ViewBag.id = Session["header_id"];
             return View();
         }
 
         //POST Create
-        
-        public void inventory_add(string id, string inv_item_id, string inv_uom_id, string qty, string price, string extended)
+        [HttpPost]
+        public void Inventory(string id, string inv_item_id, string inv_uom_id, string qty, string price, string extended)
         {
             trans_transaction_detail td = new trans_transaction_detail();
                 td.trans_transaction_header_id = Int64.Parse(id);
-                td.inv_item_id = int.Parse(item_id);
-                td.inv_uom_id = int.Parse(uom_id);
+                td.inv_item_id = int.Parse(inv_item_id);
+                td.inv_uom_id = int.Parse(inv_uom_id);
                 td.mf_tax_id = 1;
                 td.crm_user_id = int.Parse(Session["user_id"].ToString());
                 td.mf_status_id = 5; //not voided#
@@ -48,13 +50,15 @@ namespace MortgageSystem.Controllers
                 td.inv_qty = decimal.Parse(qty) * -1;
                 td.tax_amount = 0;
                 td.price_wo_tax = decimal.Parse(extended);
+                td.price_w_tax = decimal.Parse(extended);
                 td.discount_rate = 0;
                 td.discount_amount = 0;
                 td.line_discount_amount_applied = 0;
                 td.sub_total = decimal.Parse(extended);
                 td.extended_total = decimal.Parse(extended);
-            db.trans_transaction_detail.Add(td);
-            db.SaveChanges();
+
+                db.trans_transaction_detail.Add(td);
+                db.SaveChanges();
         }
 
         //GET List
@@ -64,14 +68,25 @@ namespace MortgageSystem.Controllers
         //}
 
         //GET List
-        public ActionResult Inventory_list(Int64? header_id)
+        [HttpGet]
+        public  ActionResult Inventory_list(string id)
         {
+            Int64 header_id = Int64.Parse(id);
             var inventory = from data in db.trans_transaction_detail
                             where data.trans_transaction_header_id == header_id
                             select data;
             ViewBag.inventory = inventory.ToList();
             return View();
         }
+
+       //here
+        //// GET: MortgageCash/Delete/5
+       public void delete_inventory(int id)
+       {
+            trans_transaction_detail td = db.trans_transaction_detail.Find(id);// db.trans_transaction_detail.FindAsync(id);
+            db.trans_transaction_detail.Remove(td);
+            db.SaveChanges();
+       }
 
         //Get Create
         public ActionResult Create()
@@ -86,7 +101,7 @@ namespace MortgageSystem.Controllers
         }
 
 
-        public Int64 local_header_id;
+        //public Int64 local_header_id;
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(string from_date, string to_date, string crm_branch_id, string crm_customer_id, string mf_open_status_id,
@@ -116,8 +131,6 @@ namespace MortgageSystem.Controllers
 
             //header_id = 1054;//th.id;
             Session["header_id"] = th.id;
-            
-
             await db.SaveChangesAsync();
             return RedirectToAction("Edit"+"/"+ Session["header_id"]);
         }
@@ -155,7 +168,9 @@ namespace MortgageSystem.Controllers
             ViewBag.mf_open_status_id = new SelectList(db.mf_status, "id", "description", trans_transaction_header.mf_open_status_id);
             ViewBag.mf_is_void_status_id = new SelectList(db.mf_status, "id", "description", trans_transaction_header.mf_is_void_status_id);
 
-            ViewBag.id = id;
+            Session["header_id"] = id;
+            ViewBag.id = Session["header_id"];
+
             return View(trans_transaction_header);
         }
 
