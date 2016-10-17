@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MortgageSystem.Models;
+using MortgageSystem;
 
 
 namespace MortgageSystem.Controllers
@@ -15,6 +16,14 @@ namespace MortgageSystem.Controllers
     public class MortgageInventoryController : Controller
     {
         private mortgageEntities db = new mortgageEntities();
+
+        ////Price
+        //public decimal item_price()
+        //{
+        //    return Class.cls_utility.Equals.item_price.(1);   
+        //}
+
+
         // GET: MortgageInventory
         public async Task<ActionResult> Index()
         {
@@ -23,6 +32,8 @@ namespace MortgageSystem.Controllers
                                              select data;
             return View(await crm_mortgage_daily_payable.AsNoTracking().ToListAsync());
         }
+
+
 
 
         //GET Create Inventory

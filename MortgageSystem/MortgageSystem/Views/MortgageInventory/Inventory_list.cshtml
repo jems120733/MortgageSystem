@@ -43,7 +43,7 @@
             var id = $(this).val();
                 $.ajax({
                     type: "GET",
-                    url: '/MortgageInventory/delete_inventory/' + id, //Controller name
+                    url: '/MortgageInventory/delete_inventory/' + id, 
                     success: function (xhr) {
                         alert("items has been remove.");
                         list_item();
