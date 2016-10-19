@@ -37,14 +37,12 @@ namespace MortgageSystem.Views
                 return DateTime.Now;
             }
         }
+        
         // GET: Payment_form        
         DateTime global_date_started;
         public ActionResult Payment_form(Int64 id)
         {
             DateTime last_payment_date;
-            
-            
-
             try
             {
                 trans_payment_collection pc = db.trans_payment_collection.OrderByDescending(x => x.id).First(x => x.trans_transaction_header_id == id && x.crm_collector_id > 0);

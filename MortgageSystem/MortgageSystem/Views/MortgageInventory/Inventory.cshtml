@@ -8,6 +8,7 @@
 <html>
 @using (Html.BeginForm())
 {
+    
     @Html.AntiForgeryToken()
         <body>
             <h3>Select Item</h3>
@@ -18,18 +19,18 @@
                 <th>UOM</th>
                 <th>Extended</th>
                 <th>Action</th>
-                <tr>
+                <tr class="compute_ext_amount">
                     <td>                           
-                        @Html.DropDownList("inv_item_id", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                        @Html.DropDownList("inv_item_id", null, htmlAttributes: new { @class = "form-control compute_inventory", required = "required" })
                    </td>
-                    <td>
+                    <td class="compute_amount">
                         <input autocomplete="off" class="form-control text-box single-line" id="qty" name="qty" value="" type="text" required="required">
                     </td>
-                    <td>
+                    <td class="compute_amount">
                         <input autocomplete="off" class="form-control  text-box single-line" id="price" name="price" value="" type="text" required="required">
                     </td>
                     <td>
-                        @Html.DropDownList("inv_uom_id", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                        @Html.DropDownList("inv_uom_id", null, htmlAttributes: new { @class = "form-control compute_inventory", required = "required" })
                     </td>
                     <td>
                         <input autocomplete="off" class="form-control  text-box single-line" id="extended" name="extended" value="" type="text" required="required" >
@@ -41,6 +42,7 @@
                         <input type="hidden" id="id" name="id" value="@ViewBag.id" />
                     </td>
                 </tr>
+               
             </table>
         </body>
 }
@@ -50,30 +52,144 @@
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-    
+    $(document).ready(function ()
+    {
+        var gt_amt;
+        get_price();
 
-    $("#add_item").click(function () {        
-        var item = {
-            id: $("#id").val(),
-            inv_item_id: $("#inv_item_id").val(),
-            inv_uom_id: $("#inv_uom_id").val(),
-            qty: $("#qty").val(),
-            price: $("#price").val(),
-            extended: $("#extended").val()
-        };
+        function load_gt_to_amount_textbox()
+        {
+            var item = {
+                id: $("#id").val()
+            };
 
-        $.ajax({
-            type: "POST",
-            url: '/MortgageInventory/Inventory',            
-            data: item,
-            datatype: "html",
-            success: function (data, xhr) {
-                alert("items has been added.");
-                list_item();
-            },
-            error: function (xhr) {
-                alert(xhr);
-            }
+            $.ajax({
+                type: "GET",
+                url: '/MortgageInventory/get_grand_total',
+                data: item,
+                datatype: "html",
+                success: function (data, xhr) {
+                    gt_amt = data;
+                    //alert("from load_gt_to_amount_textbox:" + data);
+                    $("#amount").val(data);
+                    //gt_amt = data;
+                    //gt_amt = data; jemuel
+                    //calculate_mortgage_payable();
+                    //alert ("gt_amount:"+ gt_amt);
+                },
+                error: function (xhr) {
+                    alert("error");                    
+                }
+            });
+        }
+
+
+       
+        function calculate_ext_total()
+        {
+            var qty = parseFloat($("#qty").val());
+            var price = parseFloat($("#price").val());
+            var extended = qty * price;
+            $("#extended").val(extended.toFixed(2));
+        }
+
+        $(".compute_ext_amount").keyup(function () {
+            calculate_ext_total();
+            
         });
+
+        $(".compute_ext_amount").keyup(function () {
+            calculate_ext_total();
+        });
+
+        $(".compute_ext_amount").click(function () {
+            calculate_ext_total();
+        });
+
+
+        function get_price()
+        {
+            var item = {
+                inv_item_id: $("#inv_item_id").val(),
+                inv_uom_id: $("#inv_uom_id").val()
+            };
+
+            $.ajax({
+                type: "GET",
+                url: '/MortgageInventory/get_price',
+                data: item,
+                datatype: "html",
+                success: function (data, xhr) {
+                    $("#price").val(data);
+
+                },
+                error: function (xhr) {
+                    $("#price").val(data);
+                }
+            });
+        }
+
+        $(".compute_inventory").change(function ()
+        {
+            get_price();
+        });
+
+        
+        //Calculate grand total
+        function calculate_mortgage_payable()
+        {
+            alert("Item added.");
+            //Assign gt to amount
+            
+            var amount = parseFloat(gt_amt);// + parseFloat($("#amount").val());
+            //alert("amount:" + amount);
+
+            var rate = parseFloat($("#rate").val());
+            var period = parseFloat($("#period").val());
+            var mortgage_amount = amount;
+            var total_interest = mortgage_amount * (rate / 100);
+            var total_amount = mortgage_amount + total_interest;
+            var daily_interest = total_interest / period;
+
+            //Final Result            
+            $("#total_amount").val(total_amount.toFixed(2));
+            $("#daily_interest").val(daily_interest.toFixed(2));
+            $("#daily_payable").val((total_amount / period).toFixed(2));
+            $("#total_interest").val(total_interest.toFixed(2));
+        }
+
+
+        $("#add_item").click(function ()
+        {
+            //load_gt_to_amount_textbox();
+            var item = {
+                id: $("#id").val(),
+                inv_item_id: $("#inv_item_id").val(),
+                inv_uom_id: $("#inv_uom_id").val(),
+                qty: $("#qty").val(),
+                price: $("#price").val(),
+                extended: $("#extended").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '/MortgageInventory/Inventory',
+                data: item,
+                datatype: "html",
+                success: function (data, xhr) {
+                    list_item();
+                    load_gt_to_amount_textbox();
+                },
+                error: function (xhr) {
+                    alert(xhr);
+                }
+            });
+
+                
+            //load_gt_to_amount_textbox();
+            calculate_mortgage_payable();
+        });
+
+        
     });
 </script>

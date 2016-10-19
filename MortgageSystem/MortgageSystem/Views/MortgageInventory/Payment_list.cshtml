@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Payment list";
+}
+
+<h2>Payment list</h2>
+<p>
+    @Html.ActionLink("List", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            For date
+        </th>
+        <th>
+            Payment Type
+        </th>
+        <th>
+            Collector
+        </th>
+
+
+        <th>
+            Comment
+        </th>
+
+        <th>
+            Amount
+        </th>
+
+        <th>
+            Open Balance
+        </th>
+        <th>
+            Penalty
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @{decimal open_balance = 0; int count = 0; }
+    @foreach (var item in ViewBag.list)
+    {
+        open_balance += item.open_balance_amount * -1;
+        count += 1;
+        <tr>
+            <td>
+                @count:
+                @item.sales_date.ToString("MMM dd, yyyy")
+            </td>
+            <td>
+                @item.mf_payment_type.Description
+            </td>
+
+            <td>
+                @if (item.crm_collector_id != null)
+                {
+                    @(item.crm_employee.last_name + ", " + item.crm_employee.first_name + " " + item.crm_employee.middle_name)
+                }
+                else
+                {
+                    @("Mortgage Amount")
+                }
+            </td>
+
+            <td>
+                @item.comment
+            </td>
+
+            <td>
+                @item.amount
+            </td>
+
+            <td>
+                @open_balance
+            </td>
+
+            <td>
+                @item.penalty_amount
+            </td>
+
+
+
+        </tr>
+    }
+
+</table>
+
+
+

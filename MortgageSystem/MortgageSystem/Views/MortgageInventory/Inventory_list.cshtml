@@ -9,15 +9,14 @@
 
 <body> 
     <table class="table">
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>UOM</th>
+        <th>Extended</th>
+        <th>Action</th>
         @foreach (var item in ViewBag.inventory)
         { 
-            <th>Item</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>UOM</th>
-            <th>Extended</th>
-            <th>Action</th>
-           
             <tr class="del_line">
                 <td>@item.inv_item.short_description</td>
                 <td>@item.qty</td>
@@ -45,7 +44,7 @@
                     type: "GET",
                     url: '/MortgageInventory/delete_inventory/' + id, 
                     success: function (xhr) {
-                        alert("items has been remove.");
+                        //alert("items has been remove.");
                         list_item();
                     },
                     error: function (xhr) {
