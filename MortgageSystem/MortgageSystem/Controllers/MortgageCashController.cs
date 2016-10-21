@@ -319,6 +319,7 @@ namespace MortgageSystem.Views
             pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
+            pc.discount_amount = 0;
             pc.open_balance_amount = (total_interest+ amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;

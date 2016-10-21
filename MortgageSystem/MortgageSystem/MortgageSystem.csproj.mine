@@ -782,17 +782,11 @@
     <Content Include="Views\MortgageInventory\Inventory.cshtml" />
     <Content Include="Views\MortgageInventory\Inventory_list.cshtml" />
     <Content Include="Views\MortgageInventory\Edit.cshtml" />
-<<<<<<< .mine
     <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
     <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
     <Content Include="Views\MortgageInventory\Details.cshtml" />
     <Content Include="Views\InventoryReport\Index.cshtml" />
     <Content Include="Views\ReceivableReport\Index.cshtml" />
-=======
-    <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
-    <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
-    <Content Include="Views\MortgageInventory\Details.cshtml" />
->>>>>>> .r35
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

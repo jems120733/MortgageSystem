@@ -350,6 +350,7 @@ namespace MortgageSystem.Controllers
             th.crm_user_id = int.Parse(Session["user_id"].ToString()); //temporary
             th.mf_is_void_status_id = 5; //Not Voided
             th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
+            th.discount_amount = 0;
             th.comment = comment;
 
             //Save Header

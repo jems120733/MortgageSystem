@@ -212,7 +212,6 @@
     <Compile Include="Controllers\employee_addressController.cs" />
     <Compile Include="Controllers\employee_contactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InventoryReportController.cs" />
     <Compile Include="Controllers\itemController.cs" />
     <Compile Include="Controllers\item_categoryController.cs" />
     <Compile Include="Controllers\job_position_detailController.cs" />
@@ -222,7 +221,6 @@
     <Compile Include="Controllers\paymenttypeController.cs" />
     <Compile Include="Controllers\pricebook_detailController.cs" />
     <Compile Include="Controllers\pricebook_headerController.cs" />
-    <Compile Include="Controllers\ReceivableReportController.cs" />
     <Compile Include="Controllers\requirementsdetailController.cs" />
     <Compile Include="Controllers\requirementsmfController.cs" />
     <Compile Include="Controllers\schedulermfController.cs" />
@@ -782,17 +780,9 @@
     <Content Include="Views\MortgageInventory\Inventory.cshtml" />
     <Content Include="Views\MortgageInventory\Inventory_list.cshtml" />
     <Content Include="Views\MortgageInventory\Edit.cshtml" />
-<<<<<<< .mine
     <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
     <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
     <Content Include="Views\MortgageInventory\Details.cshtml" />
-    <Content Include="Views\InventoryReport\Index.cshtml" />
-    <Content Include="Views\ReceivableReport\Index.cshtml" />
-=======
-    <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
-    <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
-    <Content Include="Views\MortgageInventory\Details.cshtml" />
->>>>>>> .r35
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
