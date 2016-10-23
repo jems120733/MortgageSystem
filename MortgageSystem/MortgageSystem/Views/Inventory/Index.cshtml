@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Inventory</h2>
+
+<table class="table">
+    @{
+        <th>Item</th>
+        <th>Qty</th>
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.item_description
+                </td>
+                <td>
+                    @item.inv_qty.ToString("#,###.00")
+                </td>
+            </tr>
+        }
+    }
+
+</table>

@@ -20,10 +20,10 @@ namespace MortgageSystem.Models
             this.crm_mortgage_daily_payables = new HashSet<crm_mortgage_daily_payables>();
             this.crm_requirements_tf = new HashSet<crm_requirements_tf>();
             this.crm_seminar_scheduler_mf = new HashSet<crm_seminar_scheduler_mf>();
-            this.trans_payment_collection = new HashSet<trans_payment_collection>();
-            this.trans_payment_collection1 = new HashSet<trans_payment_collection>();
             this.trans_transaction_detail = new HashSet<trans_transaction_detail>();
             this.trans_transaction_detail1 = new HashSet<trans_transaction_detail>();
+            this.trans_payment_collection = new HashSet<trans_payment_collection>();
+            this.trans_payment_collection1 = new HashSet<trans_payment_collection>();
             this.trans_transaction_header = new HashSet<trans_transaction_header>();
             this.trans_transaction_header1 = new HashSet<trans_transaction_header>();
         }
@@ -41,13 +41,13 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<crm_seminar_scheduler_mf> crm_seminar_scheduler_mf { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trans_payment_collection> trans_payment_collection1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<trans_transaction_detail> trans_transaction_detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<trans_transaction_detail> trans_transaction_detail1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<trans_payment_collection> trans_payment_collection1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<trans_transaction_header> trans_transaction_header { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

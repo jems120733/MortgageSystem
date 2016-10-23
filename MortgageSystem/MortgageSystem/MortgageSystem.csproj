@@ -202,8 +202,10 @@
     <Compile Include="Controllers\addressController.cs" />
     <Compile Include="Controllers\assignmentController.cs" />
     <Compile Include="Controllers\branchController.cs" />
+    <Compile Include="Controllers\CapitalController.cs" />
     <Compile Include="Controllers\civilstatusController.cs" />
     <Compile Include="Controllers\contactController.cs" />
+    <Compile Include="Controllers\CurrentBalanceController.cs" />
     <Compile Include="Controllers\customerController.cs" />
     <Compile Include="Controllers\customer_addressController.cs" />
     <Compile Include="Controllers\customer_contactController.cs" />
@@ -212,7 +214,7 @@
     <Compile Include="Controllers\employee_addressController.cs" />
     <Compile Include="Controllers\employee_contactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InventoryReportController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\itemController.cs" />
     <Compile Include="Controllers\item_categoryController.cs" />
     <Compile Include="Controllers\job_position_detailController.cs" />
@@ -222,7 +224,7 @@
     <Compile Include="Controllers\paymenttypeController.cs" />
     <Compile Include="Controllers\pricebook_detailController.cs" />
     <Compile Include="Controllers\pricebook_headerController.cs" />
-    <Compile Include="Controllers\ReceivableReportController.cs" />
+    <Compile Include="Controllers\ReceivableController.cs" />
     <Compile Include="Controllers\requirementsdetailController.cs" />
     <Compile Include="Controllers\requirementsmfController.cs" />
     <Compile Include="Controllers\schedulermfController.cs" />
@@ -782,17 +784,14 @@
     <Content Include="Views\MortgageInventory\Inventory.cshtml" />
     <Content Include="Views\MortgageInventory\Inventory_list.cshtml" />
     <Content Include="Views\MortgageInventory\Edit.cshtml" />
-<<<<<<< .mine
     <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
     <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
     <Content Include="Views\MortgageInventory\Details.cshtml" />
-    <Content Include="Views\InventoryReport\Index.cshtml" />
-    <Content Include="Views\ReceivableReport\Index.cshtml" />
-=======
-    <Content Include="Views\MortgageInventory\Payment_form.cshtml" />
-    <Content Include="Views\MortgageInventory\Payment_list.cshtml" />
-    <Content Include="Views\MortgageInventory\Details.cshtml" />
->>>>>>> .r35
+    <Content Include="Views\Receivable\Index.cshtml" />
+    <Content Include="Views\Inventory\Index.cshtml" />
+    <Content Include="Views\CurrentBalance\Index.cshtml" />
+    <Content Include="Views\Capital\Index.cshtml" />
+    <Content Include="Views\Capital\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

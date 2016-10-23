@@ -33,9 +33,7 @@
     <EntitySet Name="mf_payment_type" EntityType="mortgageModel.mf_payment_type" />
     <EntitySet Name="mf_status" EntityType="mortgageModel.mf_status" />
     <EntitySet Name="mf_tax" EntityType="mortgageModel.mf_tax" />
-    <EntitySet Name="trans_payment_collection" EntityType="mortgageModel.trans_payment_collection" />
     <EntitySet Name="trans_transaction_detail" EntityType="mortgageModel.trans_transaction_detail" />
-    <EntitySet Name="trans_transaction_header" EntityType="mortgageModel.trans_transaction_header" />
     <EntitySet Name="trans_transaction_type" EntityType="mortgageModel.trans_transaction_type" />
     <AssociationSet Name="FK_crm_dependent_crm_address_id" Association="mortgageModel.FK_crm_dependent_crm_address_id">
       <End Role="crm_address" EntitySet="crm_address" />
@@ -77,22 +75,6 @@
       <End Role="crm_branch" EntitySet="crm_branch" />
       <End Role="inv_pricebook_header" EntitySet="inv_pricebook_header" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_payment_collection_crm_branch_id" Association="mortgageModel.FK_trans_payment_collection_crm_branch_id">
-      <End Role="crm_branch" EntitySet="crm_branch" />
-      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id">
-      <End Role="crm_branch" EntitySet="crm_branch" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id_from" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_from">
-      <End Role="crm_branch" EntitySet="crm_branch" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id_to" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_to">
-      <End Role="crm_branch" EntitySet="crm_branch" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
     <AssociationSet Name="FK_custmer_civil_status_id" Association="mortgageModel.FK_custmer_civil_status_id">
       <End Role="crm_civil_status" EntitySet="crm_civil_status" />
       <End Role="crm_customer" EntitySet="crm_customer" />
@@ -125,10 +107,6 @@
       <End Role="crm_customer" EntitySet="crm_customer" />
       <End Role="inv_pricebook_header" EntitySet="inv_pricebook_header" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_customer_id" Association="mortgageModel.FK_trans_transaction_header_crm_customer_id">
-      <End Role="crm_customer" EntitySet="crm_customer" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
     <AssociationSet Name="FK_customer_address_employee_id" Association="mortgageModel.FK_customer_address_employee_id">
       <End Role="crm_employee" EntitySet="crm_employee" />
       <End Role="crm_customer_address" EntitySet="crm_customer_address" />
@@ -153,20 +131,12 @@
       <End Role="crm_employee" EntitySet="crm_employee" />
       <End Role="crm_employee_contact" EntitySet="crm_employee_contact" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_payment_collection_crm_employee_id" Association="mortgageModel.FK_trans_payment_collection_crm_employee_id">
-      <End Role="crm_employee" EntitySet="crm_employee" />
-      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
-    </AssociationSet>
     <AssociationSet Name="FK_crm_job_position_tf_crm_job_position_mf_id" Association="mortgageModel.FK_crm_job_position_tf_crm_job_position_mf_id">
       <End Role="crm_job_position_mf" EntitySet="crm_job_position_mf" />
       <End Role="crm_job_position_tf" EntitySet="crm_job_position_tf" />
     </AssociationSet>
     <AssociationSet Name="FK_crm_mortgage_daily_payables_crm_user_id" Association="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id">
       <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="crm_mortgage_daily_payables" EntitySet="crm_mortgage_daily_payables" />
-    </AssociationSet>
-    <AssociationSet Name="FK_crm_mortgage_daily_payables_trans_transaction_header_id" Association="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id">
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
       <End Role="crm_mortgage_daily_payables" EntitySet="crm_mortgage_daily_payables" />
     </AssociationSet>
     <AssociationSet Name="FK_crm_requirements_tf_crm_user_id" Association="mortgageModel.FK_crm_requirements_tf_crm_user_id">
@@ -189,14 +159,6 @@
       <End Role="mf_status" EntitySet="mf_status" />
       <End Role="crm_seminar_scheduler_tf" EntitySet="crm_seminar_scheduler_tf" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_payment_collection_crm_admin_id" Association="mortgageModel.FK_trans_payment_collection_crm_admin_id">
-      <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_payment_collection_crm_user_id" Association="mortgageModel.FK_trans_payment_collection_crm_user_id">
-      <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
-    </AssociationSet>
     <AssociationSet Name="FK_trans_transaction_detail_crm_admin_id" Association="mortgageModel.FK_trans_transaction_detail_crm_admin_id">
       <End Role="crm_user" EntitySet="crm_user" />
       <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
@@ -205,21 +167,9 @@
       <End Role="crm_user" EntitySet="crm_user" />
       <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_user_id" Association="mortgageModel.FK_trans_transaction_header_crm_user_id">
-      <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_crm_user_id_admin" Association="mortgageModel.FK_trans_transaction_header_crm_user_id_admin">
-      <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
     <AssociationSet Name="FK_trans_transaction_detail_inv_discount_id" Association="mortgageModel.FK_trans_transaction_detail_inv_discount_id">
       <End Role="inv_discount" EntitySet="inv_discount" />
       <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_inv_discount_id" Association="mortgageModel.FK_trans_transaction_header_inv_discount_id">
-      <End Role="inv_discount" EntitySet="inv_discount" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
     </AssociationSet>
     <AssociationSet Name="FK_inv_item_mf_status_id" Association="mortgageModel.FK_inv_item_mf_status_id">
       <End Role="mf_status" EntitySet="mf_status" />
@@ -261,9 +211,26 @@
       <End Role="inv_uom" EntitySet="inv_uom" />
       <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_header_mf_document_type_id" Association="mortgageModel.FK_trans_transaction_header_mf_document_type_id">
-      <End Role="mf_document_type" EntitySet="mf_document_type" />
-      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    <AssociationSet Name="FK_trans_transaction_detail_mf_status_id" Association="mortgageModel.FK_trans_transaction_detail_mf_status_id">
+      <End Role="mf_status" EntitySet="mf_status" />
+      <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_detail_mf_tax_id" Association="mortgageModel.FK_trans_transaction_detail_mf_tax_id">
+      <End Role="mf_tax" EntitySet="mf_tax" />
+      <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
+    </AssociationSet>
+    <EntitySet Name="trans_payment_collection" EntityType="mortgageModel.trans_payment_collection" />
+    <AssociationSet Name="FK_trans_payment_collection_crm_employee_id" Association="mortgageModel.FK_trans_payment_collection_crm_employee_id">
+      <End Role="crm_employee" EntitySet="crm_employee" />
+      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_payment_collection_crm_admin_id" Association="mortgageModel.FK_trans_payment_collection_crm_admin_id">
+      <End Role="crm_user" EntitySet="crm_user" />
+      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_payment_collection_crm_user_id" Association="mortgageModel.FK_trans_payment_collection_crm_user_id">
+      <End Role="crm_user" EntitySet="crm_user" />
+      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
     </AssociationSet>
     <AssociationSet Name="FK_trans_payment_collection_mf_payment_type_id" Association="mortgageModel.FK_trans_payment_collection_mf_payment_type_id">
       <End Role="mf_payment_type" EntitySet="mf_payment_type" />
@@ -273,9 +240,42 @@
       <End Role="mf_status" EntitySet="mf_status" />
       <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
     </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_detail_mf_status_id" Association="mortgageModel.FK_trans_transaction_detail_mf_status_id">
-      <End Role="mf_status" EntitySet="mf_status" />
-      <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
+    <EntitySet Name="trans_transaction_header" EntityType="mortgageModel.trans_transaction_header" />
+    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id">
+      <End Role="crm_branch" EntitySet="crm_branch" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id_from" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_from">
+      <End Role="crm_branch" EntitySet="crm_branch" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_crm_branch_id_to" Association="mortgageModel.FK_trans_transaction_header_crm_branch_id_to">
+      <End Role="crm_branch" EntitySet="crm_branch" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_crm_customer_id" Association="mortgageModel.FK_trans_transaction_header_crm_customer_id">
+      <End Role="crm_customer" EntitySet="crm_customer" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crm_mortgage_daily_payables_trans_transaction_header_id" Association="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id">
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+      <End Role="crm_mortgage_daily_payables" EntitySet="crm_mortgage_daily_payables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_crm_user_id" Association="mortgageModel.FK_trans_transaction_header_crm_user_id">
+      <End Role="crm_user" EntitySet="crm_user" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_crm_user_id_admin" Association="mortgageModel.FK_trans_transaction_header_crm_user_id_admin">
+      <End Role="crm_user" EntitySet="crm_user" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_inv_discount_id" Association="mortgageModel.FK_trans_transaction_header_inv_discount_id">
+      <End Role="inv_discount" EntitySet="inv_discount" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trans_transaction_header_mf_document_type_id" Association="mortgageModel.FK_trans_transaction_header_mf_document_type_id">
+      <End Role="mf_document_type" EntitySet="mf_document_type" />
+      <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
     </AssociationSet>
     <AssociationSet Name="FK_trans_transaction_header_mf_status_id_isvoid" Association="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid">
       <End Role="mf_status" EntitySet="mf_status" />
@@ -284,10 +284,6 @@
     <AssociationSet Name="FK_trans_transaction_header_mf_status_id_open" Association="mortgageModel.FK_trans_transaction_header_mf_status_id_open">
       <End Role="mf_status" EntitySet="mf_status" />
       <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_transaction_detail_mf_tax_id" Association="mortgageModel.FK_trans_transaction_detail_mf_tax_id">
-      <End Role="mf_tax" EntitySet="mf_tax" />
-      <End Role="trans_transaction_detail" EntitySet="trans_transaction_detail" />
     </AssociationSet>
     <AssociationSet Name="FK_trans_payment_collection_trans_transaction_header_id" Association="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id">
       <End Role="trans_transaction_header" EntitySet="trans_transaction_header" />
@@ -336,7 +332,6 @@
     <NavigationProperty Name="crm_requirements_tf" Relationship="mortgageModel.FK_crm_requirements_tf_crm_branch_id" FromRole="crm_branch" ToRole="crm_requirements_tf" />
     <NavigationProperty Name="inv_item" Relationship="mortgageModel.FK_inv_item_crm_branch_id" FromRole="crm_branch" ToRole="inv_item" />
     <NavigationProperty Name="inv_pricebook_header" Relationship="mortgageModel.FK_inv_pricebook_header_crm_branch_id" FromRole="crm_branch" ToRole="inv_pricebook_header" />
-    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_crm_branch_id" FromRole="crm_branch" ToRole="trans_payment_collection" />
     <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id" FromRole="crm_branch" ToRole="trans_transaction_header" />
     <NavigationProperty Name="trans_transaction_header1" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_from" FromRole="crm_branch" ToRole="trans_transaction_header" />
     <NavigationProperty Name="trans_transaction_header2" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_to" FromRole="crm_branch" ToRole="trans_transaction_header" />
@@ -485,8 +480,8 @@
     <Property Name="date_ended" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="crm_customer" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_customer_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_customer" />
     <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" FromRole="crm_mortgage_daily_payables" ToRole="crm_user" />
-    <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="crm_mortgage_daily_payables" ToRole="trans_transaction_header" />
     <Property Name="daily_amount_interest" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="crm_mortgage_daily_payables" ToRole="trans_transaction_header" />
   </EntityType>
   <EntityType Name="crm_requirements_mf">
     <Key>
@@ -548,10 +543,10 @@
     <NavigationProperty Name="crm_mortgage_daily_payables" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_crm_user_id" FromRole="crm_user" ToRole="crm_mortgage_daily_payables" />
     <NavigationProperty Name="crm_requirements_tf" Relationship="mortgageModel.FK_crm_requirements_tf_crm_user_id" FromRole="crm_user" ToRole="crm_requirements_tf" />
     <NavigationProperty Name="crm_seminar_scheduler_mf" Relationship="mortgageModel.FK_crm_seminar_scheduler_mf_crm_user_id" FromRole="crm_user" ToRole="crm_seminar_scheduler_mf" />
-    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_crm_admin_id" FromRole="crm_user" ToRole="trans_payment_collection" />
-    <NavigationProperty Name="trans_payment_collection1" Relationship="mortgageModel.FK_trans_payment_collection_crm_user_id" FromRole="crm_user" ToRole="trans_payment_collection" />
     <NavigationProperty Name="trans_transaction_detail" Relationship="mortgageModel.FK_trans_transaction_detail_crm_admin_id" FromRole="crm_user" ToRole="trans_transaction_detail" />
     <NavigationProperty Name="trans_transaction_detail1" Relationship="mortgageModel.FK_trans_transaction_detail_crm_user_id" FromRole="crm_user" ToRole="trans_transaction_detail" />
+    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_crm_admin_id" FromRole="crm_user" ToRole="trans_payment_collection" />
+    <NavigationProperty Name="trans_payment_collection1" Relationship="mortgageModel.FK_trans_payment_collection_crm_user_id" FromRole="crm_user" ToRole="trans_payment_collection" />
     <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id" FromRole="crm_user" ToRole="trans_transaction_header" />
     <NavigationProperty Name="trans_transaction_header1" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id_admin" FromRole="crm_user" ToRole="trans_transaction_header" />
   </EntityType>
@@ -678,8 +673,8 @@
     <NavigationProperty Name="inv_item" Relationship="mortgageModel.FK_inv_item_mf_status_id" FromRole="mf_status" ToRole="inv_item" />
     <NavigationProperty Name="inv_pricebook_detail" Relationship="mortgageModel.FK_inv_pricebook_detail_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_detail" />
     <NavigationProperty Name="inv_pricebook_header" Relationship="mortgageModel.FK_inv_pricebook_header_mf_status_id" FromRole="mf_status" ToRole="inv_pricebook_header" />
-    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_mf_status_id" FromRole="mf_status" ToRole="trans_payment_collection" />
     <NavigationProperty Name="trans_transaction_detail" Relationship="mortgageModel.FK_trans_transaction_detail_mf_status_id" FromRole="mf_status" ToRole="trans_transaction_detail" />
+    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_mf_status_id" FromRole="mf_status" ToRole="trans_payment_collection" />
     <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid" FromRole="mf_status" ToRole="trans_transaction_header" />
     <NavigationProperty Name="trans_transaction_header1" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_open" FromRole="mf_status" ToRole="trans_transaction_header" />
   </EntityType>
@@ -691,33 +686,6 @@
     <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="rate" Type="Decimal" Precision="20" Scale="2" />
     <NavigationProperty Name="trans_transaction_detail" Relationship="mortgageModel.FK_trans_transaction_detail_mf_tax_id" FromRole="mf_tax" ToRole="trans_transaction_detail" />
-  </EntityType>
-  <EntityType Name="trans_payment_collection">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="trans_transaction_header_id" Type="Int64" Nullable="false" />
-    <Property Name="mf_payment_type_id" Type="Int32" Nullable="false" />
-    <Property Name="crm_user_id" Type="Int32" Nullable="false" />
-    <Property Name="crm_admin_id" Type="Int32" />
-    <Property Name="crm_collector_id" Type="Int64" />
-    <Property Name="crm_branch_id" Type="Int32" />
-    <Property Name="mf_status_id" Type="Int32" />
-    <Property Name="amount" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
-    <Property Name="open_balance_amount" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
-    <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="sales_date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="discount_amount" Type="Decimal" Precision="20" Scale="2" />
-    <NavigationProperty Name="crm_branch" Relationship="mortgageModel.FK_trans_payment_collection_crm_branch_id" FromRole="trans_payment_collection" ToRole="crm_branch" />
-    <NavigationProperty Name="crm_employee" Relationship="mortgageModel.FK_trans_payment_collection_crm_employee_id" FromRole="trans_payment_collection" ToRole="crm_employee" />
-    <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_trans_payment_collection_crm_admin_id" FromRole="trans_payment_collection" ToRole="crm_user" />
-    <NavigationProperty Name="crm_user1" Relationship="mortgageModel.FK_trans_payment_collection_crm_user_id" FromRole="trans_payment_collection" ToRole="crm_user" />
-    <NavigationProperty Name="mf_payment_type" Relationship="mortgageModel.FK_trans_payment_collection_mf_payment_type_id" FromRole="trans_payment_collection" ToRole="mf_payment_type" />
-    <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_payment_collection_mf_status_id" FromRole="trans_payment_collection" ToRole="mf_status" />
-    <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" FromRole="trans_payment_collection" ToRole="trans_transaction_header" />
-    <Property Name="penalty_amount" Type="Decimal" Precision="20" Scale="2" />
   </EntityType>
   <EntityType Name="trans_transaction_detail">
     <Key>
@@ -753,41 +721,6 @@
     <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_transaction_detail_mf_status_id" FromRole="trans_transaction_detail" ToRole="mf_status" />
     <NavigationProperty Name="mf_tax" Relationship="mortgageModel.FK_trans_transaction_detail_mf_tax_id" FromRole="trans_transaction_detail" ToRole="mf_tax" />
     <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_transaction_detail_trans_transaction_header_id" FromRole="trans_transaction_detail" ToRole="trans_transaction_header" />
-  </EntityType>
-  <EntityType Name="trans_transaction_header">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="trans_transaction_type_id" Type="Int32" Nullable="false" />
-    <Property Name="sales_date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="mf_document_type_id" Type="Int32" Nullable="false" />
-    <Property Name="crm_branch_id" Type="Int32" Nullable="false" />
-    <Property Name="crm_from_branch_id" Type="Int32" />
-    <Property Name="crm_to_branch_id" Type="Int32" />
-    <Property Name="crm_customer_id" Type="Int64" Nullable="false" />
-    <Property Name="crm_user_id" Type="Int32" Nullable="false" />
-    <Property Name="crm_admin_id" Type="Int32" />
-    <Property Name="inv_discount_id" Type="Int32" />
-    <Property Name="mf_is_void_status_id" Type="Int32" Nullable="false" />
-    <Property Name="mf_open_status_id" Type="Int32" Nullable="false" />
-    <Property Name="discount_amount" Type="Decimal" Precision="20" Scale="2" />
-    <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="crm_branch" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id" FromRole="trans_transaction_header" ToRole="crm_branch" />
-    <NavigationProperty Name="crm_branch1" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_from" FromRole="trans_transaction_header" ToRole="crm_branch" />
-    <NavigationProperty Name="crm_branch2" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_to" FromRole="trans_transaction_header" ToRole="crm_branch" />
-    <NavigationProperty Name="crm_customer" Relationship="mortgageModel.FK_trans_transaction_header_crm_customer_id" FromRole="trans_transaction_header" ToRole="crm_customer" />
-    <NavigationProperty Name="crm_mortgage_daily_payables" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="crm_mortgage_daily_payables" />
-    <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id" FromRole="trans_transaction_header" ToRole="crm_user" />
-    <NavigationProperty Name="crm_user1" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id_admin" FromRole="trans_transaction_header" ToRole="crm_user" />
-    <NavigationProperty Name="inv_discount" Relationship="mortgageModel.FK_trans_transaction_header_inv_discount_id" FromRole="trans_transaction_header" ToRole="inv_discount" />
-    <NavigationProperty Name="mf_document_type" Relationship="mortgageModel.FK_trans_transaction_header_mf_document_type_id" FromRole="trans_transaction_header" ToRole="mf_document_type" />
-    <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid" FromRole="trans_transaction_header" ToRole="mf_status" />
-    <NavigationProperty Name="mf_status1" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_open" FromRole="trans_transaction_header" ToRole="mf_status" />
-    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="trans_payment_collection" />
-    <NavigationProperty Name="trans_transaction_detail" Relationship="mortgageModel.FK_trans_transaction_detail_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="trans_transaction_detail" />
-    <NavigationProperty Name="trans_transaction_type" Relationship="mortgageModel.FK_trans_transaction_header_trans_transaction_type_id" FromRole="trans_transaction_header" ToRole="trans_transaction_type" />
   </EntityType>
   <EntityType Name="trans_transaction_type">
     <Key>
@@ -917,54 +850,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_payment_collection_crm_branch_id">
-    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_branch">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_payment_collection">
-        <PropertyRef Name="crm_branch_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_header_crm_branch_id">
-    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_branch">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_branch_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_header_crm_branch_id_from">
-    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_branch">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_from_branch_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_header_crm_branch_id_to">
-    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_branch">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_to_branch_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_custmer_civil_status_id">
     <End Type="mortgageModel.crm_civil_status" Role="crm_civil_status" Multiplicity="1" />
     <End Type="mortgageModel.crm_customer" Role="crm_customer" Multiplicity="*" />
@@ -1061,18 +946,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_transaction_header_crm_customer_id">
-    <End Type="mortgageModel.crm_customer" Role="crm_customer" Multiplicity="1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_customer">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_customer_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_customer_address_employee_id">
     <End Type="mortgageModel.crm_employee" Role="crm_employee" Multiplicity="1" />
     <End Type="mortgageModel.crm_customer_address" Role="crm_customer_address" Multiplicity="*" />
@@ -1145,18 +1018,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_payment_collection_crm_employee_id">
-    <End Type="mortgageModel.crm_employee" Role="crm_employee" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_employee">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_payment_collection">
-        <PropertyRef Name="crm_collector_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_crm_job_position_tf_crm_job_position_mf_id">
     <End Type="mortgageModel.crm_job_position_mf" Role="crm_job_position_mf" Multiplicity="1" />
     <End Type="mortgageModel.crm_job_position_tf" Role="crm_job_position_tf" Multiplicity="*" />
@@ -1178,18 +1039,6 @@
       </Principal>
       <Dependent Role="crm_mortgage_daily_payables">
         <PropertyRef Name="user_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_crm_mortgage_daily_payables_trans_transaction_header_id">
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="1" />
-    <End Type="mortgageModel.crm_mortgage_daily_payables" Role="crm_mortgage_daily_payables" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="trans_transaction_header">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="crm_mortgage_daily_payables">
-        <PropertyRef Name="trans_transaction_header_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1253,30 +1102,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_payment_collection_crm_admin_id">
-    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_payment_collection">
-        <PropertyRef Name="crm_admin_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_payment_collection_crm_user_id">
-    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="1" />
-    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_payment_collection">
-        <PropertyRef Name="crm_user_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_trans_transaction_detail_crm_admin_id">
     <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="0..1" />
     <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
@@ -1301,30 +1126,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_transaction_header_crm_user_id">
-    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_user_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_header_crm_user_id_admin">
-    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="crm_admin_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_trans_transaction_detail_inv_discount_id">
     <End Type="mortgageModel.inv_discount" Role="inv_discount" Multiplicity="0..1" />
     <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
@@ -1333,18 +1134,6 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="trans_transaction_detail">
-        <PropertyRef Name="inv_discount_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_header_inv_discount_id">
-    <End Type="mortgageModel.inv_discount" Role="inv_discount" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="inv_discount">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_header">
         <PropertyRef Name="inv_discount_id" />
       </Dependent>
     </ReferentialConstraint>
@@ -1469,15 +1258,89 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_transaction_header_mf_document_type_id">
-    <End Type="mortgageModel.mf_document_type" Role="mf_document_type" Multiplicity="1" />
-    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+  <Association Name="FK_trans_transaction_detail_mf_status_id">
+    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="mf_document_type">
+      <Principal Role="mf_status">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="trans_transaction_header">
-        <PropertyRef Name="mf_document_type_id" />
+      <Dependent Role="trans_transaction_detail">
+        <PropertyRef Name="mf_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_detail_mf_tax_id">
+    <End Type="mortgageModel.mf_tax" Role="mf_tax" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mf_tax">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_detail">
+        <PropertyRef Name="mf_tax_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="trans_payment_collection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_transaction_header_id" Type="Int64" Nullable="false" />
+    <Property Name="mf_payment_type_id" Type="Int32" Nullable="false" />
+    <Property Name="crm_user_id" Type="Int32" Nullable="false" />
+    <Property Name="crm_admin_id" Type="Int32" />
+    <Property Name="crm_collector_id" Type="Int64" />
+    <Property Name="mf_status_id" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="open_balance_amount" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sales_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="discount_amount" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="penalty_amount" Type="Decimal" Precision="20" Scale="2" />
+    <NavigationProperty Name="crm_employee" Relationship="mortgageModel.FK_trans_payment_collection_crm_employee_id" FromRole="trans_payment_collection" ToRole="crm_employee" />
+    <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_trans_payment_collection_crm_admin_id" FromRole="trans_payment_collection" ToRole="crm_user" />
+    <NavigationProperty Name="crm_user1" Relationship="mortgageModel.FK_trans_payment_collection_crm_user_id" FromRole="trans_payment_collection" ToRole="crm_user" />
+    <NavigationProperty Name="mf_payment_type" Relationship="mortgageModel.FK_trans_payment_collection_mf_payment_type_id" FromRole="trans_payment_collection" ToRole="mf_payment_type" />
+    <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_payment_collection_mf_status_id" FromRole="trans_payment_collection" ToRole="mf_status" />
+    <Property Name="total_interest_amount" Type="Decimal" Precision="20" Scale="2" />
+    <NavigationProperty Name="trans_transaction_header" Relationship="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" FromRole="trans_payment_collection" ToRole="trans_transaction_header" />
+  </EntityType>
+  <Association Name="FK_trans_payment_collection_crm_employee_id">
+    <End Type="mortgageModel.crm_employee" Role="crm_employee" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_employee">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_payment_collection">
+        <PropertyRef Name="crm_collector_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_payment_collection_crm_admin_id">
+    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_payment_collection">
+        <PropertyRef Name="crm_admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_payment_collection_crm_user_id">
+    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="1" />
+    <End Type="mortgageModel.trans_payment_collection" Role="trans_payment_collection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_payment_collection">
+        <PropertyRef Name="crm_user_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1505,20 +1368,151 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_transaction_detail_mf_status_id">
-    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
+  <EntityType Name="trans_transaction_header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_transaction_type_id" Type="Int32" Nullable="false" />
+    <Property Name="sales_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="mf_document_type_id" Type="Int32" Nullable="false" />
+    <Property Name="crm_branch_id" Type="Int32" Nullable="false" />
+    <Property Name="crm_from_branch_id" Type="Int32" />
+    <Property Name="crm_to_branch_id" Type="Int32" />
+    <Property Name="crm_customer_id" Type="Int64" />
+    <Property Name="crm_user_id" Type="Int32" Nullable="false" />
+    <Property Name="crm_admin_id" Type="Int32" />
+    <Property Name="inv_discount_id" Type="Int32" />
+    <Property Name="mf_is_void_status_id" Type="Int32" />
+    <Property Name="mf_open_status_id" Type="Int32" />
+    <Property Name="discount_amount" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="crm_branch" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id" FromRole="trans_transaction_header" ToRole="crm_branch" />
+    <NavigationProperty Name="crm_branch1" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_from" FromRole="trans_transaction_header" ToRole="crm_branch" />
+    <NavigationProperty Name="crm_branch2" Relationship="mortgageModel.FK_trans_transaction_header_crm_branch_id_to" FromRole="trans_transaction_header" ToRole="crm_branch" />
+    <NavigationProperty Name="crm_customer" Relationship="mortgageModel.FK_trans_transaction_header_crm_customer_id" FromRole="trans_transaction_header" ToRole="crm_customer" />
+    <NavigationProperty Name="crm_mortgage_daily_payables" Relationship="mortgageModel.FK_crm_mortgage_daily_payables_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="crm_mortgage_daily_payables" />
+    <NavigationProperty Name="crm_user" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id" FromRole="trans_transaction_header" ToRole="crm_user" />
+    <NavigationProperty Name="crm_user1" Relationship="mortgageModel.FK_trans_transaction_header_crm_user_id_admin" FromRole="trans_transaction_header" ToRole="crm_user" />
+    <NavigationProperty Name="inv_discount" Relationship="mortgageModel.FK_trans_transaction_header_inv_discount_id" FromRole="trans_transaction_header" ToRole="inv_discount" />
+    <NavigationProperty Name="mf_document_type" Relationship="mortgageModel.FK_trans_transaction_header_mf_document_type_id" FromRole="trans_transaction_header" ToRole="mf_document_type" />
+    <NavigationProperty Name="mf_status" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_isvoid" FromRole="trans_transaction_header" ToRole="mf_status" />
+    <NavigationProperty Name="mf_status1" Relationship="mortgageModel.FK_trans_transaction_header_mf_status_id_open" FromRole="trans_transaction_header" ToRole="mf_status" />
+    <NavigationProperty Name="trans_payment_collection" Relationship="mortgageModel.FK_trans_payment_collection_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="trans_payment_collection" />
+    <NavigationProperty Name="trans_transaction_detail" Relationship="mortgageModel.FK_trans_transaction_detail_trans_transaction_header_id" FromRole="trans_transaction_header" ToRole="trans_transaction_detail" />
+    <NavigationProperty Name="trans_transaction_type" Relationship="mortgageModel.FK_trans_transaction_header_trans_transaction_type_id" FromRole="trans_transaction_header" ToRole="trans_transaction_type" />
+  </EntityType>
+  <Association Name="FK_trans_transaction_header_crm_branch_id">
+    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="mf_status">
+      <Principal Role="crm_branch">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="trans_transaction_detail">
-        <PropertyRef Name="mf_status_id" />
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_branch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_crm_branch_id_from">
+    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_branch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_from_branch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_crm_branch_id_to">
+    <End Type="mortgageModel.crm_branch" Role="crm_branch" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_branch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_to_branch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_crm_customer_id">
+    <End Type="mortgageModel.crm_customer" Role="crm_customer" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crm_mortgage_daily_payables_trans_transaction_header_id">
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="1" />
+    <End Type="mortgageModel.crm_mortgage_daily_payables" Role="crm_mortgage_daily_payables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trans_transaction_header">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="crm_mortgage_daily_payables">
+        <PropertyRef Name="trans_transaction_header_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_crm_user_id">
+    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_crm_user_id_admin">
+    <End Type="mortgageModel.crm_user" Role="crm_user" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crm_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="crm_admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_inv_discount_id">
+    <End Type="mortgageModel.inv_discount" Role="inv_discount" Multiplicity="0..1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_discount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="inv_discount_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trans_transaction_header_mf_document_type_id">
+    <End Type="mortgageModel.mf_document_type" Role="mf_document_type" Multiplicity="1" />
+    <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mf_document_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_transaction_header">
+        <PropertyRef Name="mf_document_type_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_transaction_header_mf_status_id_isvoid">
-    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="1" />
+    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="0..1" />
     <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="mf_status">
@@ -1530,7 +1524,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_transaction_header_mf_status_id_open">
-    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="1" />
+    <End Type="mortgageModel.mf_status" Role="mf_status" Multiplicity="0..1" />
     <End Type="mortgageModel.trans_transaction_header" Role="trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="mf_status">
@@ -1538,18 +1532,6 @@
       </Principal>
       <Dependent Role="trans_transaction_header">
         <PropertyRef Name="mf_open_status_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trans_transaction_detail_mf_tax_id">
-    <End Type="mortgageModel.mf_tax" Role="mf_tax" Multiplicity="0..1" />
-    <End Type="mortgageModel.trans_transaction_detail" Role="trans_transaction_detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="mf_tax">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_transaction_detail">
-        <PropertyRef Name="mf_tax_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

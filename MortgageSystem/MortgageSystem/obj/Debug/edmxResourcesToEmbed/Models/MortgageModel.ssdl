@@ -299,9 +299,9 @@
     <Property Name="crm_admin_id" Type="int" />
     <Property Name="crm_collector_id" Type="bigint" />
     <Property Name="mf_status_id" Type="int" />
-    <Property Name="crm_branch_id" Type="int" />
     <Property Name="amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
     <Property Name="open_balance_amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="total_interest_amount" Type="decimal" Precision="20" Scale="2" />
     <Property Name="payment_date" Type="datetime" Nullable="false" />
     <Property Name="sales_date" Type="date" Nullable="false" />
     <Property Name="comment" Type="varchar" MaxLength="255" />
@@ -347,12 +347,12 @@
     <Property Name="crm_branch_id" Type="int" Nullable="false" />
     <Property Name="crm_from_branch_id" Type="int" />
     <Property Name="crm_to_branch_id" Type="int" />
-    <Property Name="crm_customer_id" Type="bigint" Nullable="false" />
+    <Property Name="crm_customer_id" Type="bigint" />
     <Property Name="crm_user_id" Type="int" Nullable="false" />
     <Property Name="crm_admin_id" Type="int" />
     <Property Name="inv_discount_id" Type="int" />
-    <Property Name="mf_is_void_status_id" Type="int" Nullable="false" />
-    <Property Name="mf_open_status_id" Type="int" Nullable="false" />
+    <Property Name="mf_is_void_status_id" Type="int" />
+    <Property Name="mf_open_status_id" Type="int" />
     <Property Name="discount_amount" Type="decimal" Precision="20" Scale="2" />
     <Property Name="comment" Type="varchar" MaxLength="255" />
   </EntityType>
@@ -855,18 +855,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trans_payment_collection_crm_branch_id">
-    <End Role="crm_branch" Type="Self.crm_branch" Multiplicity="0..1" />
-    <End Role="trans_payment_collection" Type="Self.trans_payment_collection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="crm_branch">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="trans_payment_collection">
-        <PropertyRef Name="crm_branch_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_trans_payment_collection_crm_employee_id">
     <End Role="crm_employee" Type="Self.crm_employee" Multiplicity="0..1" />
     <End Role="trans_payment_collection" Type="Self.trans_payment_collection" Multiplicity="*" />
@@ -1060,7 +1048,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_transaction_header_crm_customer_id">
-    <End Role="crm_customer" Type="Self.crm_customer" Multiplicity="1" />
+    <End Role="crm_customer" Type="Self.crm_customer" Multiplicity="0..1" />
     <End Role="trans_transaction_header" Type="Self.trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="crm_customer">
@@ -1120,7 +1108,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_transaction_header_mf_status_id_isvoid">
-    <End Role="mf_status" Type="Self.mf_status" Multiplicity="1" />
+    <End Role="mf_status" Type="Self.mf_status" Multiplicity="0..1" />
     <End Role="trans_transaction_header" Type="Self.trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="mf_status">
@@ -1132,7 +1120,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trans_transaction_header_mf_status_id_open">
-    <End Role="mf_status" Type="Self.mf_status" Multiplicity="1" />
+    <End Role="mf_status" Type="Self.mf_status" Multiplicity="0..1" />
     <End Role="trans_transaction_header" Type="Self.trans_transaction_header" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="mf_status">
@@ -1354,10 +1342,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_trans_payment_collection_crm_admin_id" Association="Self.FK_trans_payment_collection_crm_admin_id">
       <End Role="crm_user" EntitySet="crm_user" />
-      <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trans_payment_collection_crm_branch_id" Association="Self.FK_trans_payment_collection_crm_branch_id">
-      <End Role="crm_branch" EntitySet="crm_branch" />
       <End Role="trans_payment_collection" EntitySet="trans_payment_collection" />
     </AssociationSet>
     <AssociationSet Name="FK_trans_payment_collection_crm_employee_id" Association="Self.FK_trans_payment_collection_crm_employee_id">

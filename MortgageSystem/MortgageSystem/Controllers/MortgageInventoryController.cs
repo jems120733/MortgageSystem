@@ -171,7 +171,9 @@ namespace MortgageSystem.Controllers
                 pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                 pc.crm_collector_id = int.Parse(crm_collector_id);
                 pc.amount = decimal.Parse(amount);
+                pc.total_interest_amount = 0;
                 pc.open_balance_amount = decimal.Parse(amount);
+                pc.discount_amount = 0;
                 pc.payment_date = DateTime.Now;
                 pc.sales_date = DateTime.Parse(sales_date);
                 pc.comment = comment;
@@ -193,6 +195,8 @@ namespace MortgageSystem.Controllers
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
                         pc.amount = 0;
+                        pc.total_interest_amount = 0;
+                        pc.discount_amount = 0;
                         pc.open_balance_amount = di * -1;//decimal.Parse(amount) * -1 + di * (-1);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = last_payment.AddDays(x);
@@ -211,6 +215,7 @@ namespace MortgageSystem.Controllers
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
                         pc.amount = decimal.Parse(amount) + penalty_amount;
+                        pc.total_interest_amount = 0;
                         pc.open_balance_amount = decimal.Parse(amount);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = DateTime.Parse(sales_date);
@@ -350,7 +355,6 @@ namespace MortgageSystem.Controllers
             th.crm_user_id = int.Parse(Session["user_id"].ToString()); //temporary
             th.mf_is_void_status_id = 5; //Not Voided
             th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
-            th.discount_amount = 0;
             th.comment = comment;
 
             //Save Header
@@ -380,7 +384,7 @@ namespace MortgageSystem.Controllers
             pc.trans_transaction_header_id = trans_header_id;
             pc.mf_payment_type_id = payment_type_id;
             pc.crm_user_id = user_id;
-            pc.crm_branch_id = branch_id;
+            //pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
             pc.open_balance_amount = (total_interest + amount) * (-1);
@@ -478,9 +482,10 @@ namespace MortgageSystem.Controllers
             pc.trans_transaction_header_id = trans_header_id;
             pc.mf_payment_type_id = payment_type_id;
             pc.crm_user_id = user_id;
-            pc.crm_branch_id = branch_id;
+            //pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
+            pc.total_interest_amount = total_interest;
             pc.open_balance_amount = (total_interest + amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;

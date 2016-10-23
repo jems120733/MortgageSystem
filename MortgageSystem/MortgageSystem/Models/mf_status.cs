@@ -23,8 +23,8 @@ namespace MortgageSystem.Models
             this.inv_item = new HashSet<inv_item>();
             this.inv_pricebook_detail = new HashSet<inv_pricebook_detail>();
             this.inv_pricebook_header = new HashSet<inv_pricebook_header>();
-            this.trans_payment_collection = new HashSet<trans_payment_collection>();
             this.trans_transaction_detail = new HashSet<trans_transaction_detail>();
+            this.trans_payment_collection = new HashSet<trans_payment_collection>();
             this.trans_transaction_header = new HashSet<trans_transaction_header>();
             this.trans_transaction_header1 = new HashSet<trans_transaction_header>();
         }
@@ -46,9 +46,9 @@ namespace MortgageSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inv_pricebook_header> inv_pricebook_header { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<trans_transaction_detail> trans_transaction_detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<trans_payment_collection> trans_payment_collection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<trans_transaction_header> trans_transaction_header { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

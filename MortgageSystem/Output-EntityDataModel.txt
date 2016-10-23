@@ -1,0 +1,18 @@
+﻿Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:01.9631739.
+Generating the model took 00:00:02.7593859.
+Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:00.7416978.
+Generating the model took 00:00:00.5359659.
+Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:00.6449301.
+Generating the model took 00:00:00.4093162.
+Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:02.1118780.
+Generating the model took 00:00:03.5836246.
+Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:00.6919828.
+Generating the model took 00:00:03.4419225.
+Generated model file: MortgageModel.edmx.
+Loading metadata from the database took 00:00:00.6262301.
+Generating the model took 00:00:00.4724075.

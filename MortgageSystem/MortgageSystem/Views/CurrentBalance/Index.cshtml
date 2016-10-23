@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Current Balance</h2>
+<table class="table">
+    <th>Amount</th>
+    <tr>
+        <td>
+            @ViewBag.current_balance.ToString("#,##.00") 
+        </td>
+    </tr>
+</table>
+

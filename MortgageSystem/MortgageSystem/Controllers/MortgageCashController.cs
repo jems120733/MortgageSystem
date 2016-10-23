@@ -106,6 +106,7 @@ namespace MortgageSystem.Views
                 pc.comment = comment;
                 pc.mf_status_id = 5;
                 pc.penalty_amount = 0;
+                pc.discount_amount = 0;
                 db.trans_payment_collection.Add(pc);
                 //await db.SaveChangesAsync();
             }
@@ -122,6 +123,7 @@ namespace MortgageSystem.Views
                         pc.crm_user_id = int.Parse(Session["user_id"].ToString());
                         pc.crm_collector_id = int.Parse(crm_collector_id);
                         pc.amount = 0;
+                        pc.discount_amount = 0;
                         pc.open_balance_amount = di * -1;//decimal.Parse(amount) * -1 + di * (-1);
                         pc.payment_date = DateTime.Now;
                         pc.sales_date = last_payment.AddDays(x);
@@ -257,8 +259,6 @@ namespace MortgageSystem.Views
                                                 string period,string rate, string amount, string daily_payable, string total_amount,string daily_interest,
                                                 string total_interest, string comment)
         {
-
-
             trans_transaction_header th = new trans_transaction_header();
             th.trans_transaction_type_id = 1; //regular
             th.sales_date = DateTime.Parse(from_date);
@@ -269,8 +269,7 @@ namespace MortgageSystem.Views
             th.crm_user_id = int.Parse(Session["user_id"].ToString()); //temporary
             th.mf_is_void_status_id = 5; //Not Voided
             th.mf_open_status_id = int.Parse(mf_open_status_id); //Grant Status
-            th.comment = comment;
-            
+            th.comment = comment;            
 
             //Save Header
             db.trans_transaction_header.Add(th);
@@ -297,9 +296,9 @@ namespace MortgageSystem.Views
             pc.trans_transaction_header_id = trans_header_id;
             pc.mf_payment_type_id = payment_type_id;
             pc.crm_user_id = user_id;
-            pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
+            pc.total_interest_amount = total_interest;
             pc.open_balance_amount = ( total_interest + amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;
@@ -316,10 +315,10 @@ namespace MortgageSystem.Views
             pc.trans_transaction_header_id = trans_header_id;
             pc.mf_payment_type_id = payment_type_id;
             pc.crm_user_id = user_id;            
-            pc.crm_branch_id = branch_id;
+            //pc.crm_branch_id = branch_id;
             pc.mf_status_id = is_void_status_id;
             pc.amount = amount;
-            pc.discount_amount = 0;
+            pc.total_interest_amount = total_interest;
             pc.open_balance_amount = (total_interest+ amount) * (-1);
             pc.payment_date = payment_date;
             pc.sales_date = sales_date;

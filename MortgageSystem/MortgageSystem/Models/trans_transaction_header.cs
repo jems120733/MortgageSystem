@@ -30,12 +30,12 @@ namespace MortgageSystem.Models
         public int crm_branch_id { get; set; }
         public Nullable<int> crm_from_branch_id { get; set; }
         public Nullable<int> crm_to_branch_id { get; set; }
-        public long crm_customer_id { get; set; }
+        public Nullable<long> crm_customer_id { get; set; }
         public int crm_user_id { get; set; }
         public Nullable<int> crm_admin_id { get; set; }
         public Nullable<int> inv_discount_id { get; set; }
-        public int mf_is_void_status_id { get; set; }
-        public int mf_open_status_id { get; set; }
+        public Nullable<int> mf_is_void_status_id { get; set; }
+        public Nullable<int> mf_open_status_id { get; set; }
         public Nullable<decimal> discount_amount { get; set; }
         public string comment { get; set; }
     

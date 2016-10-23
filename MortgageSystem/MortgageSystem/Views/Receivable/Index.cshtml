@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Receivable</h2>
+
+<table class="table">
+@{
+    <th>Transaction</th>
+    <th>Mortgagor</th>
+    <th>Balance</th>
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.transaction_description
+            </td>
+            <td>
+                @item.last_name, 
+                @item.first_name 
+                @item.middle_name
+            </td>
+            <td>
+                @item.open_balance.ToString("#,###.00")
+            </td>
+        </tr>
+    }
+}
+
+</table>

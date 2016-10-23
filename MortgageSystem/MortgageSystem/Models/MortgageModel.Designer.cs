@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\Models\MortgageModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\Models\MortgageModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

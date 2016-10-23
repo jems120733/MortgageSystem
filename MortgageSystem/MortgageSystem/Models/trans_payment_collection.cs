@@ -20,7 +20,6 @@ namespace MortgageSystem.Models
         public int crm_user_id { get; set; }
         public Nullable<int> crm_admin_id { get; set; }
         public Nullable<long> crm_collector_id { get; set; }
-        public Nullable<int> crm_branch_id { get; set; }
         public Nullable<int> mf_status_id { get; set; }
         public decimal amount { get; set; }
         public decimal open_balance_amount { get; set; }
@@ -29,8 +28,8 @@ namespace MortgageSystem.Models
         public string comment { get; set; }
         public Nullable<decimal> discount_amount { get; set; }
         public Nullable<decimal> penalty_amount { get; set; }
+        public Nullable<decimal> total_interest_amount { get; set; }
     
-        public virtual crm_branch crm_branch { get; set; }
         public virtual crm_employee crm_employee { get; set; }
         public virtual crm_user crm_user { get; set; }
         public virtual crm_user crm_user1 { get; set; }

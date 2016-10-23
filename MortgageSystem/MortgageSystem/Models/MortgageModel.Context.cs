@@ -57,9 +57,9 @@ namespace MortgageSystem.Models
         public virtual DbSet<mf_payment_type> mf_payment_type { get; set; }
         public virtual DbSet<mf_status> mf_status { get; set; }
         public virtual DbSet<mf_tax> mf_tax { get; set; }
-        public virtual DbSet<trans_payment_collection> trans_payment_collection { get; set; }
         public virtual DbSet<trans_transaction_detail> trans_transaction_detail { get; set; }
-        public virtual DbSet<trans_transaction_header> trans_transaction_header { get; set; }
         public virtual DbSet<trans_transaction_type> trans_transaction_type { get; set; }
+        public virtual DbSet<trans_payment_collection> trans_payment_collection { get; set; }
+        public virtual DbSet<trans_transaction_header> trans_transaction_header { get; set; }
     }
 }
