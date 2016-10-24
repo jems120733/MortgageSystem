@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <th>#</th>
+    <th>Customer</th>    
+    <th>Comment</th>
+    <th>Sales Date</th>
+    <th>Status</th>
+    <th></th>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>     
+                <a href="SalesInvoice/Details/@item.id">@item.id</a>
+            </td>
+            <td>
+                @item.crm_customer.last_name,
+                @item.crm_customer.first_name
+                @item.crm_customer.middle_name
+            </td>
+            <td>
+                @item.comment
+            </td>
+            
+            <td>
+                @item.sales_date
+            </td>
+            <td>
+                @item.mf_status.description
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+</table>

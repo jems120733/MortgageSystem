@@ -324,7 +324,6 @@ D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\Mor
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.dll
 D:\JEMUEL\MYFILES\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.pdb
-D:\myfilesss\CSHARP PROGRAM ASP.NET\MortgageSystem\trunk\MortgageSystem\MortgageSystem\obj\Debug\MortgageSystem.csprojResolveAssemblyReference.cache
 G:\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\ApplicationInsights.config
 G:\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\roslyn\csc.exe
 G:\MortgageSystem\trunk\MortgageSystem\MortgageSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

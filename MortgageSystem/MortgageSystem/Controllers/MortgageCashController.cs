@@ -59,17 +59,12 @@ namespace MortgageSystem.Views
                 ViewBag.message = last_payment_date.AddDays(1).ToShortDateString() + " - Started date";
             }
 
-           
-
             trans_transaction_header th = db.trans_transaction_header.Find(id);
             ViewBag.mortgagor = th.crm_customer.last_name + ", " + th.crm_customer.first_name + " " + th.crm_customer.middle_name;
             ViewBag.mf_payment_type_id = new SelectList(db.mf_payment_type, "id", "description");
             ViewBag.crm_collector_id = new SelectList(db.crm_employee, "id", "last_name");
             ViewBag.header_id = id;
-
-            //crm_mortgage_daily_payables mdp = db.crm_mortgage_daily_payables.First(x => x.trans_transaction_header_id == id);
-            //mdp.daily_amount_payables
-            //here
+           
             ViewBag.amount = payable_amount(id, last_payment_date, DateTime.Now);
             return View();
         }

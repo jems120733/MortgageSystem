@@ -227,6 +227,7 @@
     <Compile Include="Controllers\ReceivableController.cs" />
     <Compile Include="Controllers\requirementsdetailController.cs" />
     <Compile Include="Controllers\requirementsmfController.cs" />
+    <Compile Include="Controllers\SalesInvoiceController.cs" />
     <Compile Include="Controllers\schedulermfController.cs" />
     <Compile Include="Controllers\scheduletfController.cs" />
     <Compile Include="Controllers\statusController.cs" />
@@ -792,6 +793,8 @@
     <Content Include="Views\CurrentBalance\Index.cshtml" />
     <Content Include="Views\Capital\Index.cshtml" />
     <Content Include="Views\Capital\Create.cshtml" />
+    <Content Include="Views\SalesInvoice\Index.cshtml" />
+    <Content Include="Views\SalesInvoice\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
