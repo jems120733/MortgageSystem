@@ -33,40 +33,33 @@ namespace MortgageSystem.Controllers
             ViewBag.mf_open_status_id = new SelectList(db.mf_status, "id", "description");
 
             ViewBag.inv_item_id = new SelectList(db.inv_item, "id", "short_description");
-            ViewBag.inv_uom_id = new SelectList(db.inv_uom, "id", "description");
-            //ViewBag.id = Session["header_id"];
+            ViewBag.inv_uom_id = new SelectList(db.inv_uom, "id", "description");            
             return View();
         }
 
-        /*
-        public ActionResult Create(tbl_clone tblclone, FormCollection form)
-        {
-            if (ModelState.IsValid)
-            {
-                var description = form.GetValues("description").ToList();
-                var number = form.GetValues("number").ToList();
-                for (int x=0; x < int.Parse(description.Count().ToString()); x++)
-                { 
-                    tbl_clone data = new tbl_clone();
-                    string desc = description[x].ToString();
-                        data.number = int.Parse(number[x].ToString());
-                        data.description = desc;
-                        db.tbl_clone.Add(data);
-                }
-                db.SaveChanges();
+        [HttpGet]
+        public ActionResult Details(string id)
+        { 
 
-                return RedirectToAction("Index");
-            }
-            return View(tblclone);
-        } 
-        */
+            long th_id = Convert.ToInt64(id);
+            var header = from h in db.trans_transaction_header
+                        where h.id == th_id
+                        select h;
+            
 
 
-        [HttpPost]
+
+            var detail = from d in db.trans_transaction_detail
+                         where d.trans_transaction_header_id == th_id
+                         select d;
+            ViewBag.header = header.ToList();
+            ViewBag.detail = detail.ToList();
+            return View();
+        }
+
+    [HttpPost]
         public ActionResult Create(FormCollection form)
         {
-            //string sales_date, string comment, string crm_branch_id, string crm_customer_id
-
             //Start to be removed
             ViewBag.crm_branch_id = new SelectList(db.crm_branch, "id", "description");
             ViewBag.crm_customer_id = new SelectList(db.crm_customer, "id", "first_name");
